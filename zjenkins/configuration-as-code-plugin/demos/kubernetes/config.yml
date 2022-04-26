@@ -1,0 +1,42 @@
+# A Kubernetes ConfigMap providing the configuration-as-code
+# default securitydemo.config for Kubernetes plugin and an example job
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jenkins-configuration-as-code
+data:
+  configuration-as-code.yaml: |
+    jenkins:
+      clouds:
+        - kubernetes:
+            name: kubernetes
+            containerCapStr: 100
+            templates:
+              - name: maven
+                label: mavenpodtemplate
+                containers:
+                  - name: maven
+                    image: maven:3.3.9-jdk-8-alpine
+                    ttyEnabled: true
+                    command: cat
+                    args: ""
+    unclassified:
+      location:
+        url: http://jenkins/
+    jobs:
+      - script: >
+        pipelineJob('configuration-as-code') {
+            definition {
+                cps {
+                    sandbox()
+                    script("""
+                      podTemplate(label: 'mypod') {
+                        node('mypod') {
+                          sh "hostname"
+                        }
+                      }
+                    """.stripIndent())
+                }
+            }
+        }

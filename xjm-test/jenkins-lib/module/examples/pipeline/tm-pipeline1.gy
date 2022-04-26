@@ -1,0 +1,58 @@
+/**
+ * 使用 next generation warnings 做静态检查结果的处理
+ * https://github.com/jenkinsci/warnings-ng-plugin/blob/master/doc/Documentation.md#source-code-blames-for-git-projects
+ */
+
+node('master') {
+    def mvnHome = tool 'maven'
+    def jdk = tool 'jdk8'
+
+    env.JAVA_HOME = '/root/jdk8'
+    env.PATH = "${jdk}/bin:${mvnHome}/bin:${env.PATH}"
+
+    sh "mvn --version"
+    sh "java -version"
+// 	sh "docker image ls"
+
+    parameters {
+        string(name: 'common-starter', defaultValue: '', description: 'git repo of common-starter')
+    }
+
+    // git clone
+    stage('git clone') {
+        checkout([$class: 'GitSCM', branches: [[name: '${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'xjming_gogs', url: '${repo}']]])
+    }
+
+    // another git clone, git into ${workspace}/web/
+    stage "checkout"
+    script {
+        dir('web') {
+            git credentialsId: 'xjming_gogs', url: '${repo}', branch: '${branch}'
+        }
+    }
+
+    stage "build"
+    script {
+        sh """
+            cd "$workspace/web"
+            mvn clean package
+        """
+    }
+
+
+    stage "deploy"
+    script {
+        sh """
+    		echo "deploy xjmmmmmmmmmm now"
+    	"""
+        recordIssues(
+                // 注意大小写！
+                enabledForFailure: true, aggregatingResults: true,
+                tools: [java(), checkStyle(), pmdParser(), spotBugs()]
+        )
+        // recordIssues blameDisabled: false, tool: java(pattern: '*.log')
+        // recordIssues forensicsDisabled: false, tool: java(pattern: '*.java')
+
+    }
+
+}

@@ -1,0 +1,103 @@
+#!/usr/bin/env groovy
+
+pipeline {
+    //确认使用主机
+    agent {
+        kubernetes {
+            label "${BUILD_TAG}-pod"
+            defaultContainer 'jnlp'
+        }
+    }
+    //常量参数，初始确定后一般不需更改
+    environment {
+        //services的pom.xml的相对路径
+        pomPath = 'pom.xml'
+        //gitlab账号
+        GIT_USERNAME = 'jenkins'
+        //密码
+        GIT_PASSWORD = '*********'
+        //k8s节点地址
+        TESTIP = '172.17.1.xxx'
+        //归档文件，jmeter测试报告
+        responseData = 'jmeter/ResponseData.xml,' + 'jmeter/ResultReport/*.*,' + 'jmeter/ResultReport/sbadmin2-1.0.7/*.*,' +
+                'jmeter/ResultReport/content/js/*.*'
+        //jmeter测试脚本名称
+        JMETERNAME = 'cms'
+    }
+    options {
+        //保持构建的最大个数
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+        // 设置Pipeline运行的超时时间
+        timeout(time: 1, unit: 'HOURS')
+    }
+    //pipeline运行结果通知给触发者
+    post {
+        //始终执行
+        always {
+            echo "分支 dddd 删除服务......"
+            container('jnlp-slave') {
+                sh """
+		            echo "branch ....."
+		        """
+            }
+        }
+        //失败触发邮件
+        failure {
+            script {
+                echo "failed"
+            }
+        }
+    }
+
+    stages {
+        // 编译构建代码
+        stage('Build') {
+            steps {
+                //拉取工程代码
+//                git branch: '${BRANCH_NAME}', credentialsId: '******-***-***-****-**********', url: 'git@172.17.1.xxx:X/xxx/zc-ht/datamgt.git'
+
+                container('jnlp-slave') {
+                    script {
+                        echo "in jnlp-slave"
+                    }
+                }
+            }
+
+        }
+        //单元测试
+        stage('Unit test') {
+            steps {
+                echo "starting unitTest......"
+                //注入jacoco插件配置,clean test执行单元测试代码. All tests should pass.
+                //junit '**/target/surefire-reports/*.xml'
+                //配置单元测试覆盖率要求，未达到要求pipeline将会fail,code coverage.LineCoverage>20%.
+                //jacoco changeBuildStatus: true, maximumLineCoverage:"20%"
+            }
+        }
+        //静态检查
+        stage('SonarQube') {
+            steps {
+                echo "starting codeAnalyze with SonarQube......"
+                //sonar:sonar.QualityGate should pass
+                container('jnlp-slave') {
+                    withSonarQubeEnv('Sonar-6.7') {
+                        //固定使用项目根目录${basedir}下的pom.xml进行代码检查
+                        //sh "mvn -f pom.xml clean compile sonar:sonar"
+                        echo "sonar test"
+                    }
+                    script {
+                        //  未通过代码检查，中断
+                        timeout(10) {
+                            //利用sonar webhook功能通知pipeline代码检测结果，未通过质量阈，pipeline将会fail
+                            def qg = waitForQualityGate()
+                            if (qg.status != 'OK') {
+                                error "未通过Sonarqube的代码质量阈检查，请及时修改！failure: ${qg.status}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}

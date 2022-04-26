@@ -1,0 +1,45 @@
+jenkins:
+  systemMessage: "Jenkins As Code Concept. See also: https://gitee.com/bewlief/sre-jenkins.git"
+  views:
+    - myView:
+        name: "Jobs Config as Code"
+  numExecutors: 4
+  scmCheckoutRetryCount: 2
+  mode: NORMAL
+  quietPeriod: 5
+  markupFormatter:
+    rawHtml:
+      disableSyntaxHighlighting: false
+  primaryView:
+    all:
+      name: "all"
+  crumbIssuer:
+    standard:
+      excludeClientIPFromCrumb: true
+  globalNodeProperties:
+    - envVars:
+        env:
+          - key: "gitlabUrl"
+            value: "http://localhost:80"
+          - key: "jenkinsUrl"
+            value: "http://localhost:8909"
+          - key: "jenkinsGitRepo"
+            value: "https://gitee.com/bewlief/sre-jenkins.git"
+
+unclassified:
+  location:
+    url: "http://localhost:8909/"
+
+tool:
+  git:
+    installations:
+      - name: git
+        home: /usr/bin/git
+  maven:
+    installations:
+      - name: maven
+        home: /maven-3.6.3.tar/maven-3.6.3
+  terraform:
+    installations:
+      - name: terraform
+        home: /usr/local/bin/terraform

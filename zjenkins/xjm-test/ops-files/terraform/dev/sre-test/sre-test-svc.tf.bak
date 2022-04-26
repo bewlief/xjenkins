@@ -1,0 +1,24 @@
+resource "kubernetes_service" "sre-test-svc" {
+  metadata {
+    name      = "sre-test-svc"
+    namespace = "foo"
+    labels = {
+      app = "sre-test-svc"
+      ns  = "foo"
+    }
+  }
+  spec {
+    selector = {
+      app = "sre-test-svc"
+    }
+    port {
+      port        = 8800
+      target_port = 8800
+    }
+
+    type = "LoadBalancer"
+  }
+}
+
+
+

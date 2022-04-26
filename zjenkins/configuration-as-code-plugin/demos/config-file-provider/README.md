@@ -1,0 +1,52 @@
+# configure securitydemo.config-file-provider files
+
+Basic configuration of the [Config File Provider plugin](https://plugins.jenkins.io/securitydemo.config-file-provider)
+
+For plugin version 3.4.1 and up:
+
+## sample configuration
+
+```yaml
+unclassified:
+  globalConfigFiles:
+    configs:
+      - custom:
+          id: custom-test
+          name: DummyCustom1
+          comment: dummy custom 1
+          content: dummy content 1
+      - json:
+          id: json-test
+          name: DummyJsonConfig
+          comment: dummy json securitydemo.config
+          content: |
+            { "dummydata": {"dummyKey": "dummyValue"} }
+      - xml:
+          id: xml-test
+          name: DummyXmlConfig
+          comment: dummy xml securitydemo.config
+          content: <root><dummy test="abc"></dummy></root>
+      - mavenSettings:
+          id: maven-test
+          name: DummySettings
+          comment: dummy settings
+          isReplaceAll: false
+          serverCredentialMappings:
+            - serverId: server1
+              credentialsId: someCredentials1
+            - serverId: server2
+              credentialsId: someCredentials2
+          content: |
+            <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+              <!-- activeProfiles
+               | List of profiles that are active for all builds.
+               |
+              -->
+              <activeProfiles>
+                <activeProfile>alwaysActiveProfile</activeProfile>
+                <activeProfile>anotherAlwaysActiveProfile</activeProfile>
+              </activeProfiles>
+            </settings>
+```

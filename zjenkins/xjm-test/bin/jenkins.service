@@ -1,0 +1,14 @@
+[Unit]
+Description=Jenkins
+After=network.target
+
+[Service]
+Type=forking
+PIDFILE=/tmp/jenkins.pid
+ExecStart=/usr/local/bin/jenkins.sh start
+ExecReload=
+ExecStop=/usr/local/bin/jenkins.sh stop
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

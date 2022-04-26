@@ -1,0 +1,26 @@
+jobs:
+  - script: >
+              pipelineJob('sre-test-job') {
+                description("This job is used for sre-test")
+                keepDependencies(false)
+    #        parameters {
+    #            choiceParam("env", ['dev', 'uat', 'pro'], "")
+    #        }
+              logRotator {
+              daysToKeep 10
+              numToKeep 10
+              }
+              definition {
+              cpsScm {
+              scm {
+              git {
+              remote {
+              url('https://gitee.com/bewlief/sre-jenkins.git')
+              }
+              branch('*/master')
+              }
+              }
+              scriptPath("src/pipeline/sre-test-job.Jenkinsfile")
+              }
+              }
+              }

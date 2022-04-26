@@ -1,0 +1,71 @@
+/**
+* dfjh 使用的pipeline，从git下载代码、打包，部署到指定服务器上去
+*
+*/
+
+node('master') {
+	def mvnHome=tool 'M3'
+	def jdk=tool 'jdk11'
+
+	env.JAVA_HOME='/root/xjm/jdk11'
+	env.PATH="${jdk}/bin:${mvnHome}/bin:${env.PATH}"
+
+	sh "mvn --version"
+	sh "java -version"
+
+    parameters {
+        string(name: 'common-starter', defaultValue: '', description: 'git repo of common-starter')
+    }
+
+    stage "checkout"
+        script {
+            dir('web') {
+                git credentialsId: 'bewlief_gitee', url: 'https://gitee.com/dufujiahe/web_aggregation.git', branch: 'test'
+            }
+}
+
+    stage "build"
+
+        script {
+	sh """
+            cd "$workspace/web"
+// 用适用于test服务器的配置文件覆盖  bootstrap-dev.yaml！
+            \\cp -rf /root/xjm/test.yaml ./src/main/resources/bootstrap-dev.yaml
+            mvn clean package
+	"""
+        }
+
+
+    stage "deploy"
+	script{
+	sh """
+		echo "deploy Saturn now"
+		cp $workspace/web/target/web-0.0.1-SNAPSHOT.jar  /root/xjm/df/
+	"""
+	}
+
+
+	stage "kill process"
+		script {
+		    sleep(2)
+
+			def pid = sh(script: "ps -ef| grep -v grep | grep web-0.0.1-SNAPSHOT  | awk '{print \$2}'",returnStdout: true).trim()
+			if(null != pid && "" != pid){
+			    echo "find: ${pid}"
+				sh "kill -9 ${pid}"
+			} else{
+			    echo "not find process of web service"
+			}
+			sleep 2
+		}
+
+
+    stage "run"
+	script{
+    		withEnv(['JENKINS_NODE_COOKIE=dontkillme']){
+    			sh """
+    				nohup java -Xmx1G -jar /root/xjm/df/web-0.0.1-SNAPSHOT.jar > /root/xjm/df/logs/web.log 2>1&
+    			"""
+    		}
+	    }
+}

@@ -1,0 +1,47 @@
+pipeline {
+  agent {
+    label 'maven'
+  } 
+  
+  options {
+    disableConcurrentBuilds()
+  }
+
+  
+  stages{
+    stage('Clone'){
+      steps{
+        //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://gitee.com/devops-workspace/learn-pipeline-java']]])
+        echo "clone demo"
+      }
+    }
+
+    stage('Build & Test'){
+      steps{
+        script{
+          container('java'){
+            sh 'mvn test -DSERVER_PORT=1234'
+            //sh 'mvn test -DSERVER_PORT=2345'
+          }
+        }
+      }
+    }
+    
+    stage('Only for demo'){
+      when {
+        allOf {
+          branch 'master'
+        }
+      }
+      steps{
+        echo 'only for demo'
+      }
+    }
+  }
+  
+  post{
+    always{
+      junit 'target/surefire-reports/**/*.xml'
+    }
+  }
+}

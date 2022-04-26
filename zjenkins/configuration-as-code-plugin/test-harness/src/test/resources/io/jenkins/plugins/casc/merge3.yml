@@ -1,0 +1,7 @@
+jenkins:
+  systemMessage: "Configured by Configuration as Code plugin"
+
+  nodes:
+    - dumb:
+        mode: NORMAL
+        name: "agent3"

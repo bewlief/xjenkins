@@ -1,0 +1,5 @@
+{
+  "repoUrl": "http://www.git.com/eureka",
+  "branch": "master",
+  "stages": "unit-test,static-check,api-test"
+}
