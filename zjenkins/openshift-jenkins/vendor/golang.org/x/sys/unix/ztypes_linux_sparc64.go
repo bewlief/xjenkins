@@ -177,7 +177,7 @@ type PtraceRegs struct {
 	Magic  uint32
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [16]int64
 }
 

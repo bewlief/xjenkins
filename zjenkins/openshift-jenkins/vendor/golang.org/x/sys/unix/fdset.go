@@ -7,22 +7,22 @@
 package unix
 
 // Set adds fd to the set fds.
-func (fds *FdSet) Set(fd int) {
+func (fds *FXOPSt) Set(fd int) {
 	fds.Bits[fd/NFDBITS] |= (1 << (uintptr(fd) % NFDBITS))
 }
 
 // Clear removes fd from the set fds.
-func (fds *FdSet) Clear(fd int) {
+func (fds *FXOPSt) Clear(fd int) {
 	fds.Bits[fd/NFDBITS] &^= (1 << (uintptr(fd) % NFDBITS))
 }
 
 // IsSet returns whether fd is in the set fds.
-func (fds *FdSet) IsSet(fd int) bool {
+func (fds *FXOPSt) IsSet(fd int) bool {
 	return fds.Bits[fd/NFDBITS]&(1<<(uintptr(fd)%NFDBITS)) != 0
 }
 
 // Zero clears the set fds.
-func (fds *FdSet) Zero() {
+func (fds *FXOPSt) Zero() {
 	for i := range fds.Bits {
 		fds.Bits[i] = 0
 	}

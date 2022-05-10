@@ -46,9 +46,9 @@ public class SchemaGenerationTest {
     }
 
     @Test
-    public void validSelfConfigurator() throws Exception {
+    public void valiXOPSlfConfigurator() throws Exception {
         assertThat(
-            validateSchema(convertYamlFileToJson(this, "validSelfConfig.yml")),
+            validateSchema(convertYamlFileToJson(this, "valiXOPSlfConfig.yml")),
             empty());
     }
 

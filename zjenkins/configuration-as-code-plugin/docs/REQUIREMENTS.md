@@ -13,7 +13,7 @@ JCasC relies on the ability to introspect Jenkins configurable components to bui
 from a live Jenkins instance. For this purpose it relies on web UI data-binding conventions.
 
 For legacy reasons, Jenkins offers multiple ways to support UI data-binding, but the sole
-one to be introspection friendly is to offer `@DataBoundSetter` fields or setters in your code.
+one to be introspection friendly is to offer `@DataBounXOPStter` fields or setters in your code.
 
 Surprisingly, this is well adopted by most plugins for `Describable` components, but not for
 `Descriptor`s, despite the exact same mechanism can be used for both. And unfortunately, in
@@ -29,7 +29,7 @@ This one should **not** use any of the `JSONObject.get*()` methods to set value 
 field. Prefer exposing JavaBean setter methods, and use `req.bindJSON(this,JSONObject)` to rely
 on introspection-friendly data-binding.
 
-Within a Descriptor such setters don't have to be annotated as `@DataBoundSetter` but we suggest
+Within a Descriptor such setters don't have to be annotated as `@DataBounXOPStter` but we suggest
 to do anyway, as it makes their intent more clear.
 
 sample:
@@ -55,13 +55,13 @@ public boolean configure(StaplerRequest req, JSONObject json) throws FormExcepti
     return true;
 }
 
-@DataBoundSetter
+@DataBounXOPStter
 public void setSmtpHost(String smtpHost) {
     this.smtpHost = nullify(smtpHost);
     save();
 }
 
-@DataBoundSetter
+@DataBounXOPStter
 public void setReplyToAddress(String address) {
     this.replyToAddress = Util.fixEmpty(address);
     save();

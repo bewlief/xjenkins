@@ -1,4 +1,4 @@
-@Library("dse-jobs") _
+@Library("XOPS-jobs") _
 
 def POD_LABEL = "jenkins-slave"
 //def POD_LABEL = "testpod-${UUID.randomUUID().toString()}"

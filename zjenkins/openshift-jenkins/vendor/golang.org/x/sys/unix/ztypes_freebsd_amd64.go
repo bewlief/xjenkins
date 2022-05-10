@@ -438,7 +438,7 @@ type Kevent_t struct {
 	Udata  *byte
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [16]uint64
 }
 

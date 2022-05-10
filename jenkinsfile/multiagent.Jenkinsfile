@@ -1,4 +1,4 @@
-// https://dse-jenkins-ci.apps.omni.service.test/job/technology/job/template-flow/job/dse-flow/job/master
+// https://XOPS-jenkins-ci.apps.omni.service.test/job/technology/job/template-flow/job/XOPS-flow/job/master
 pipeline {
   agent none
   stages {

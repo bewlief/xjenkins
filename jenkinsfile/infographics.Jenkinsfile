@@ -18,7 +18,7 @@ pipeline {
     stages {
         // 其实下面这个stage是不需要的，对当前的jenkins而言，每一个job已经自动和相应的repo/branch做了绑定，会自动下载该branch的代码
         // 除非是单独创建的job，才需要手动下载代码
-        // 且需要注意，dse-jenkins-ssh是不支持https的endpoint的，必须使用git@...的endpoint
+        // 且需要注意，XOPS-jenkins-ssh是不支持https的endpoint的，必须使用git@...的endpoint
         stage("checkout content-infographics") {
             steps {
                 script {
@@ -28,7 +28,7 @@ pipeline {
                             extensions       : [],
                             submoduleCfg     : [],
                             userRemoteConfigs: [
-                                    [credentialsId: 'dse-jenkins-ssh', url: "git@github.service.anz:dsso/content-infographics.git"]
+                                    [credentialsId: 'XOPS-jenkins-ssh', url: "git@github.service.xhoe:dsso/content-infographics.git"]
                             ]
                     ]
                     )

@@ -15,7 +15,7 @@ public class JenkinsConnect {
     }
 
     // 连接 Jenkins 需要设置的信息
-    static final String JENKINS_URL = "https://dse-jenkins-ci.apps.omni.service.test/";
+    static final String JENKINS_URL = "https://XOPS-jenkins-ci.apps.omni.service.test/";
     static final String JENKINS_USERNAME = "global\\xinj";
     static final String JENKINS_PASSWORD = "Cfplhyszgyfjch@))%0410";
 

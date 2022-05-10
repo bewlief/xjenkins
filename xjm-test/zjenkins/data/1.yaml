@@ -11,8 +11,8 @@ jenkins:
   disableRememberMe: 'FALSE'
   projectNamingStrategy: "standard"
   #  proxy:
-  #    name: "PXYAU301MELC001.ecorptst.anz.com"
-  #    noProxyHost: "dcxcheckmarx.service.anz,github.service.anz,localhost,.service.dev,.service.anz,federation-qa.globaltest.anz.com,.artifactory.gcp.anz,artifactory.gcp.anz,172.30.82.113,172.30.24.169"
+  #    name: "proxy001.xhoe.com"
+  #    noProxyHost: "dcxcheckmarx.service.xhoe,github.service.xhoe,localhost,.service.dev,.service.xhoe,federation-qa.globaltest.xhoe.com,.artifactory.gcp.xhoe,artifactory.gcp.xhoe,172.30.82.113,172.30.24.169"
   #    port: 80
 
   # 设置默认的update center
@@ -26,9 +26,9 @@ jenkins:
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:DSE Jenkins"
-        - "Overall/Read:DSE Engineering Chapter Leads"
-        - "Overall/Read:DSE Devs"
+        - "Overall/Administer:XOPS Jenkins"
+        - "Overall/Read:XOPS Engineering Chapter Leads"
+        - "Overall/Read:XOPS Devs"
         - "Overall/Administer:admin"
         - "Overall/Read:DSSO Testers"
 
@@ -135,18 +135,18 @@ credentials:
           - fileSystemServiceAccountCredential:
               id: "1a12dfa4-7fc5-47a7-aa17-cc56572a41c7"
               scope: GLOBAL
-          # TODO dsr.jar中默认使用dse-jenkins-ssh来clone repo
+          # TODO dsr.jar中默认使用XOPS-jenkins-ssh来clone repo
           - basicSSHUserPrivateKey:
-              id: "dse-jenkins-ssh"
+              id: "XOPS-jenkins-ssh"
               description: GitHub SSH Key
               passphrase: ${JENKINS_SSH_PASS}
               privateKeySource:
                 directEntry:
                   privateKey: ${JENKINS_SSH_KEY}
               scope: GLOBAL
-              username: "dse-jenkins-ssh"
+              username: "XOPS-jenkins-ssh"
           - usernamePassword:
-              id: "dse-jenkins-aws-nonprod"
+              id: "XOPS-jenkins-aws-nonprod"
               description: AWS Non-Prod Credentials
               password: ${JENKINS_AWS_SECRET_ACCESS_KEY}
               scope: GLOBAL
@@ -174,7 +174,7 @@ credentials:
           #              password: "123456"
           #              scope: GLOBAL
           - usernamePassword:
-              id: "dse-jenkins-checkmarx"
+              id: "XOPS-jenkins-checkmarx"
               description: CheckMarx Credentials
               password: ${JENKINS_CHECKMARX_PASS}
               scope: GLOBAL
@@ -187,7 +187,7 @@ credentials:
               username: ${JENKINS_GLOBALTEST_AD_USERNAME}
           - string:
               id: "new-relic-api-key-prod"
-              description: DSE New Relic API Key - Prod
+              description: XOPS New Relic API Key - Prod
               scope: GLOBAL
               secret: ${JENKINS_NEW_RELIC_API_KEY_PROD}
 
@@ -231,33 +231,33 @@ security:
 unclassified:
   location:
     # TODO jenkins自身的基本信息
-    adminAddress: "dse-jenkins@anz.com"
-    url: "https://dse-jenkins-ci.apps.omni.service.test/"
+    adminAddress: "XOPS-jenkins@xhoe.com"
+    url: "https://XOPS-jenkins-ci.apps.omni.service.test/"
   gitSCM:
     createAccountBasedOnEmail: false
-    globalConfigEmail: "dse-jenkins@anz.com"
-    globalConfigName: "DSE-Jenkins"
+    globalConfigEmail: "XOPS-jenkins@xhoe.com"
+    globalConfigName: "XOPS-Jenkins"
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
 
   cxScanBuilder:
-    credentialsId: "dse-jenkins-checkmarx"
+    credentialsId: "XOPS-jenkins-checkmarx"
     enableCertificateValidation: false
-    serverUrl: "https://dcxcheckmarx.service.anz"
+    serverUrl: "https://dcxcheckmarx.service.xhoe"
 
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
     # configuration中的github enterprise servers设置
     endpoints:
-      - apiUri: "https://github.service.anz/api/v3"
-        name: "ANZ GitHub"
+      - apiUri: "https://github.service.xhoe/api/v3"
+        name: "xhoe GitHub"
   globalLibraries:
     libraries:
       - allowVersionOverride: true
         defaultVersion: "master"
         includeInChangesets: false
         implicit: true
-        name: "dse-jobs"
+        name: "XOPS-jobs"
         retriever:
           modernSCM:
             scm:
@@ -270,10 +270,10 @@ unclassified:
   pipeline-model-docker:
     dockerLabel: "dind"
     registry:
-      url: "https://hub.artifactory.gcp.anz/"
+      url: "https://hub.artifactory.gcp.xhoe/"
   #  slackNotifier:
   #    botUser: false
   #    room: "#jenkins-alerts"
   #    sendAsText: false
-  #    teamDomain: "anzdse"
+  #    teamDomain: "xhoeXOPS"
   #    tokenCredentialId: "slack-jenkins-plugin-token"

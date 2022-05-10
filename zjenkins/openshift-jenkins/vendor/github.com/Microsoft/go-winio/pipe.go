@@ -350,7 +350,7 @@ func (l *win32PipeListener) makeServerPipe() (*win32File, error) {
 	return f, nil
 }
 
-func (l *win32PipeListener) makeConnectedServerPipe() (*win32File, error) {
+func (l *win32PipeListener) makeConnecteXOPSrverPipe() (*win32File, error) {
 	p, err := l.makeServerPipe()
 	if err != nil {
 		return nil, err
@@ -392,7 +392,7 @@ func (l *win32PipeListener) listenerRoutine() {
 				err error
 			)
 			for {
-				p, err = l.makeConnectedServerPipe()
+				p, err = l.makeConnecteXOPSrverPipe()
 				// If the connection was immediately closed by the client, try
 				// again.
 				if err != cERROR_NO_DATA {

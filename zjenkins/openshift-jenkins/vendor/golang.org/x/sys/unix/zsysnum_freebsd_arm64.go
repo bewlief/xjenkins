@@ -68,8 +68,8 @@ const (
 	SYS_MPROTECT                 = 74  // { int mprotect(const void *addr, size_t len, int prot); }
 	SYS_MADVISE                  = 75  // { int madvise(void *addr, size_t len, int behav); }
 	SYS_MINCORE                  = 78  // { int mincore(const void *addr, size_t len, char *vec); }
-	SYS_GETGROUPS                = 79  // { int getgroups(u_int gidsetsize, gid_t *gidset); }
-	SYS_SETGROUPS                = 80  // { int setgroups(u_int gidsetsize, gid_t *gidset); }
+	SYS_GETGROUPS                = 79  // { int getgroups(u_int giXOPStsize, gid_t *giXOPSt); }
+	SYS_SETGROUPS                = 80  // { int setgroups(u_int giXOPStsize, gid_t *giXOPSt); }
 	SYS_GETPGRP                  = 81  // { int getpgrp(void); }
 	SYS_SETPGID                  = 82  // { int setpgid(int pid, int pgid); }
 	SYS_SETITIMER                = 83  // { int setitimer(u_int which, struct itimerval *itv, struct itimerval *oitv); }
@@ -308,7 +308,7 @@ const (
 	SYS_KMQ_OPEN                 = 457 // { int kmq_open(const char *path, int flags, mode_t mode, const struct mq_attr *attr); }
 	SYS_KMQ_SETATTR              = 458 // { int kmq_setattr(int mqd,		const struct mq_attr *attr,		struct mq_attr *oattr); }
 	SYS_KMQ_TIMEDRECEIVE         = 459 // { int kmq_timedreceive(int mqd,	char *msg_ptr, size_t msg_len,	unsigned *msg_prio,			const struct timespec *abs_timeout); }
-	SYS_KMQ_TIMEDSEND            = 460 // { int kmq_timedsend(int mqd,		const char *msg_ptr, size_t msg_len,unsigned msg_prio,			const struct timespec *abs_timeout);}
+	SYS_KMQ_TIMEXOPSND            = 460 // { int kmq_timeXOPSnd(int mqd,		const char *msg_ptr, size_t msg_len,unsigned msg_prio,			const struct timespec *abs_timeout);}
 	SYS_KMQ_NOTIFY               = 461 // { int kmq_notify(int mqd,		const struct sigevent *sigev); }
 	SYS_KMQ_UNLINK               = 462 // { int kmq_unlink(const char *path); }
 	SYS_ABORT2                   = 463 // { int abort2(const char *why, int nargs, void **args); }

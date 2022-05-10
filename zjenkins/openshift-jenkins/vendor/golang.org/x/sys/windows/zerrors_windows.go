@@ -4865,7 +4865,7 @@ const (
 	TPM_E_BAD_PARAM_SIZE                                                      Handle        = 0x80280019
 	TPM_E_SHA_THREAD                                                          Handle        = 0x8028001A
 	TPM_E_SHA_ERROR                                                           Handle        = 0x8028001B
-	TPM_E_FAILEDSELFTEST                                                      Handle        = 0x8028001C
+	TPM_E_FAILEXOPSLFTEST                                                      Handle        = 0x8028001C
 	TPM_E_AUTH2FAIL                                                           Handle        = 0x8028001D
 	TPM_E_BADTAG                                                              Handle        = 0x8028001E
 	TPM_E_IOERROR                                                             Handle        = 0x8028001F
@@ -6596,7 +6596,7 @@ const (
 	ERROR_SVHDX_VERSION_MISMATCH                                              Handle        = 0xC05CFF09
 	ERROR_VHD_SHARED                                                          Handle        = 0xC05CFF0A
 	ERROR_SVHDX_NO_INITIATOR                                                  Handle        = 0xC05CFF0B
-	ERROR_VHDSET_BACKING_STORAGE_NOT_FOUND                                    Handle        = 0xC05CFF0C
+	ERROR_VHXOPST_BACKING_STORAGE_NOT_FOUND                                    Handle        = 0xC05CFF0C
 	ERROR_SMB_NO_PREAUTH_INTEGRITY_HASH_OVERLAP                               Handle        = 0xC05D0000
 	ERROR_SMB_BAD_CLUSTER_DIALECT                                             Handle        = 0xC05D0001
 	WININET_E_OUT_OF_HANDLES                                                  Handle        = 0x80072EE1

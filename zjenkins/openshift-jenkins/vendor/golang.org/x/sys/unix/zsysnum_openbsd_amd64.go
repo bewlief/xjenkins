@@ -82,8 +82,8 @@ const (
 	SYS_UTIMES         = 76  // { int sys_utimes(const char *path, const struct timeval *tptr); }
 	SYS_FUTIMES        = 77  // { int sys_futimes(int fd, const struct timeval *tptr); }
 	SYS_MINCORE        = 78  // { int sys_mincore(void *addr, size_t len, char *vec); }
-	SYS_GETGROUPS      = 79  // { int sys_getgroups(int gidsetsize, gid_t *gidset); }
-	SYS_SETGROUPS      = 80  // { int sys_setgroups(int gidsetsize, const gid_t *gidset); }
+	SYS_GETGROUPS      = 79  // { int sys_getgroups(int giXOPStsize, gid_t *giXOPSt); }
+	SYS_SETGROUPS      = 80  // { int sys_setgroups(int giXOPStsize, const gid_t *giXOPSt); }
 	SYS_GETPGRP        = 81  // { int sys_getpgrp(void); }
 	SYS_SETPGID        = 82  // { int sys_setpgid(pid_t pid, pid_t pgid); }
 	SYS_FUTEX          = 83  // { int sys_futex(uint32_t *f, int op, int val, const struct timespec *timeout, uint32_t *g); }

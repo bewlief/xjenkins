@@ -5,7 +5,7 @@ import hudson.Extension;
 import jenkins.model.GlobalConfiguration;
 import net.sf.json.JSONObject;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBounXOPStter;
 import org.kohsuke.stapler.StaplerRequest;
 
 /**
@@ -35,7 +35,7 @@ public class CasCGlobalConfig extends GlobalConfiguration {
         return configurationPath;
     }
 
-    @DataBoundSetter
+    @DataBounXOPStter
     public void setConfigurationPath(String configurationPath) {
         this.configurationPath = configurationPath;
     }

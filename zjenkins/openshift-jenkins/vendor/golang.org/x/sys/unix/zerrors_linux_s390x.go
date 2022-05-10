@@ -191,7 +191,7 @@ const (
 	PTRACE_DISABLE_TE                = 0x5010
 	PTRACE_ENABLE_TE                 = 0x5009
 	PTRACE_GET_LAST_BREAK            = 0x5006
-	PTRACE_OLDSETOPTIONS             = 0x15
+	PTRACE_OLXOPSTOPTIONS             = 0x15
 	PTRACE_PEEKDATA_AREA             = 0x5003
 	PTRACE_PEEKTEXT_AREA             = 0x5002
 	PTRACE_PEEKUSR_AREA              = 0x5000

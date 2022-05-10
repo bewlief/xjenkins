@@ -4,14 +4,14 @@ pipeline {
       label "k8s-devops-incapsula-testing"
       inheritFrom 'alpine'
       cloud  "openshift"
-      namespace "dse-jenkins"
+      namespace "XOPS-jenkins"
       yaml """
 spec:
   securityContext:
     runAsUser: 0
   containers:
   - name: python
-    image: hub.artifactory.gcp.anz/python:alpine
+    image: hub.artifactory.gcp.xhoe/python:alpine
     command:
     - cat
     tty: true
@@ -26,7 +26,7 @@ spec:
   }
 
   parameters {
-    string defaultValue: 'www.anz.com', description: 'FQDN of host to be tested', name: 'FQDN', trim: true
+    string defaultValue: 'www.xhoe.com', description: 'FQDN of host to be tested', name: 'FQDN', trim: true
   }
 
   stages {

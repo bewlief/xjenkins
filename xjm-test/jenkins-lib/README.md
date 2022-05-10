@@ -1,7 +1,7 @@
-# DSE Jenkins Lib
+# XOPS Jenkins Lib
 
-The DSE Jenkins Lib is a collection of functions and patterns that can be used
-in `Jenkinsfile`s across all our projects in DSE. It leverages the Jenkins
+The XOPS Jenkins Lib is a collection of functions and patterns that can be used
+in `Jenkinsfile`s across all our projects in XOPS. It leverages the Jenkins
 [Shared Library][jenkins-shared-lib] feature which allows the loading of
 arbitrary Groovy scripts and classes during the runtime of a Jenkins pipeline.
 

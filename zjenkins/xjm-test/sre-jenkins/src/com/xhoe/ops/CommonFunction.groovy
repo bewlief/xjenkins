@@ -14,7 +14,7 @@ def scheduleBaseJobs(String baseName, String jobName) {
 
     if (baseName.contains('base')) {
         if (jobName == 'master' || jobName == 'develop') {
-            properties([[$class         : 'RebuildSettings',
+            properties([[$class         : 'RebuilXOPSttings',
                          autoRebuild    : false,
                          rebuildDisabled: false],
                         // “At minute 0 past every hour from 1 through 6.”

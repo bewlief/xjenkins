@@ -17,7 +17,7 @@ spec:
       labels:
         name: jenkins
     spec:
-      terminationGracePeriodSeconds: 10
+      terminationGracePerioXOPSconds: 10
       serviceAccountName: jenkins
       containers:
         - name: jenkins

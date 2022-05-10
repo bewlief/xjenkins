@@ -4,14 +4,14 @@ pipeline {
       label "k8s-ola-kalaton"
       inheritFrom 'alpine'
       cloud  "openshift"
-      namespace "dse-jenkins"
+      namespace "XOPS-jenkins"
       yaml """
 spec:
   securityContext:
     runAsUser: 0
   containers:
   - name: katalon
-    image: hub.artifactory.gcp.anz/katalonstudio/katalon:7.7.2
+    image: hub.artifactory.gcp.xhoe/katalonstudio/katalon:7.7.2
     command:
     - cat
     tty: true
@@ -40,8 +40,8 @@ spec:
         container('jnlp') {
           checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                     doGenerateSubmoduleConfigurations: false, extensions: [],
-                    submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-app-dse',
-                                                           url: 'https://github.service.anz/dsso/TA-TPD-Katalon.git']]])
+                    submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-app-XOPS',
+                                                           url: 'https://github.service.xhoe/dsso/TA-TPD-Katalon.git']]])
           sh '''set +x
             echo 'show folder content'
             ls -al
@@ -69,12 +69,12 @@ spec:
               -aopdemo.proxy.auth.server.type=HTTPS \
               -aopdemo.proxy.auth.server.address=${proxy_fqdn} \
               -aopdemo.proxy.auth.server.port=${proxy_port} \
-              -aopdemo.proxy.auth.excludes="${no_proxy},.dev.anz" \
+              -aopdemo.proxy.auth.excludes="${no_proxy},.dev.xhoe" \
               -aopdemo.proxy.system.option=MANUAL_CONFIG \
               -aopdemo.proxy.system.server.type=HTTPS \
               -aopdemo.proxy.system.server.address=${proxy_fqdn} \
               -aopdemo.proxy.system.server.port=${proxy_port} \
-              -aopdemo.proxy.system.excludes="${no_proxy},.dev.anz" \
+              -aopdemo.proxy.system.excludes="${no_proxy},.dev.xhoe" \
               -aopdemo.proxy.system.applyToDesiredCapabilities=true
           '''
         }

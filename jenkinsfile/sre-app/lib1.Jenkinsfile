@@ -1,4 +1,4 @@
-@Library("dse-jobs") _
+@Library("XOPS-jobs") _
 
 
 def jobs = ["joba", "jobb", "jobc"]

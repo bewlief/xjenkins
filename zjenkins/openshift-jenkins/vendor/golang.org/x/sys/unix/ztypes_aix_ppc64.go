@@ -246,7 +246,7 @@ type IfMsgHdr struct {
 	_       [1]byte
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [1024]int64
 }
 

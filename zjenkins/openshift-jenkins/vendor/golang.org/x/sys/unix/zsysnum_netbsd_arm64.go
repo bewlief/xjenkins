@@ -61,8 +61,8 @@ const (
 	SYS_MPROTECT             = 74  // { int|sys||mprotect(void *addr, size_t len, int prot); }
 	SYS_MADVISE              = 75  // { int|sys||madvise(void *addr, size_t len, int behav); }
 	SYS_MINCORE              = 78  // { int|sys||mincore(void *addr, size_t len, char *vec); }
-	SYS_GETGROUPS            = 79  // { int|sys||getgroups(int gidsetsize, gid_t *gidset); }
-	SYS_SETGROUPS            = 80  // { int|sys||setgroups(int gidsetsize, const gid_t *gidset); }
+	SYS_GETGROUPS            = 79  // { int|sys||getgroups(int giXOPStsize, gid_t *giXOPSt); }
+	SYS_SETGROUPS            = 80  // { int|sys||setgroups(int giXOPStsize, const gid_t *giXOPSt); }
 	SYS_GETPGRP              = 81  // { int|sys||getpgrp(void); }
 	SYS_SETPGID              = 82  // { int|sys||setpgid(pid_t pid, pid_t pgid); }
 	SYS_DUP2                 = 90  // { int|sys||dup2(int from, int to); }

@@ -4,7 +4,7 @@
  *
  * @param projectName A full absolute name of a project.
  * @param checkmarxJenkinsTeamId Jenkins team id for the project.
- * refer to https://dcxcheckmarx.service.anz/CxWebClient/TeamsManagement.aspx?id=e362d31e-acaf-455b-b43e-2753d7a0a2e1
+ * refer to https://dcxcheckmarx.service.xhoe/CxWebClient/TeamsManagement.aspx?id=e362d31e-acaf-455b-b43e-2753d7a0a2e1
  */
 
 
@@ -13,7 +13,7 @@ def scan() {
 
   step([
     $class: 'CxScanBuilder',
-    credentialsId: 'dse-jenkins-checkmarx',
+    credentialsId: 'XOPS-jenkins-checkmarx',
     groupId: checkmarxTeamId,
     projectName: env.BUILD_TAG,
     comment: '${BUILD_URL} SHA${GIT_COMMIT}',

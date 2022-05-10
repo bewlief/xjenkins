@@ -4,7 +4,7 @@
  * https://www.jfrog.com/confluence/display/JFROG/Using+File+Specs
  */
 def publish(targetPath, pattern, opt = [:]) {
-  def conf = [repository: "dse-static"] << opt
+  def conf = [repository: "XOPS-static"] << opt
   def server = Artifactory.server "gcp-artifactory"
   def uploadSpec = """{
     "files": [{
@@ -22,5 +22,5 @@ def dockerPush(String tag) {
   def server = Artifactory.server "gcp-artifactory"
   def rtDocker = Artifactory.docker server: server, host: env.DOCKER_HOST
 
-  rtDocker.push tag, "dse-images"
+  rtDocker.push tag, "XOPS-images"
 }

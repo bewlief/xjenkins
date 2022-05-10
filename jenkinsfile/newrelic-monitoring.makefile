@@ -21,7 +21,7 @@ export TF_VAR_newrelic_api_key := $(TF_VAR_newrelic_api_key)
 TF_PLUGINS ?= $(TF_DATA)/plugins
 GIT_BRANCH ?= $(shell git rev-parse --abbrev-ref HEAD)
 
-TF_STATE_REPO ?= git@github.service.anz:dsso/newrelic-monitoring-states.git
+TF_STATE_REPO ?= git@github.service.xhoe:dsso/newrelic-monitoring-states.git
 TF_STATE_DIR ?= /tmp/tfstate
 TF_STATE_FILE ?= $(TF_STATE_DIR)/$(TF_VAR_env)/terraform.tfstate
 TF_CHANGE_PLAN ?= /tmp/terraform-changes.plan

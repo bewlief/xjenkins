@@ -261,7 +261,7 @@ const (
 	SYS_IO_GETEVENTS           = 272
 	SYS_MQ_OPEN                = 273
 	SYS_MQ_UNLINK              = 274
-	SYS_MQ_TIMEDSEND           = 275
+	SYS_MQ_TIMEXOPSND           = 275
 	SYS_MQ_TIMEDRECEIVE        = 276
 	SYS_MQ_NOTIFY              = 277
 	SYS_MQ_GETSETATTR          = 278

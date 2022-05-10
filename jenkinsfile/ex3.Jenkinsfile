@@ -5,7 +5,7 @@ pipeline {
         agent {
           docker {
             image 'builder/po:v2.1.0'
-            registryUrl 'https://dse-images.artifactory.gcp.anz'
+            registryUrl 'https://XOPS-images.artifactory.gcp.xhoe'
           }
         }
 
@@ -34,7 +34,7 @@ pipeline {
               echo "Current PatchNumber: ${env.PATCHNUM}"
               /*TODO --- FIXME script {
                 withCredentials([usernamePassword(
-                  credentialsId: 'github-app-dse',
+                  credentialsId: 'github-app-XOPS',
                   usernameVariable: 'GITHUB_APP',
                   passwordVariable: 'GITHUB_TOKEN'
                 )]) {

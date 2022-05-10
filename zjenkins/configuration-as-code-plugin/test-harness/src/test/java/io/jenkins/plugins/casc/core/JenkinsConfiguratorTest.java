@@ -59,7 +59,7 @@ public class JenkinsConfiguratorTest {
     @Test
     @Issue("Issue #173")
     @ConfiguredWithCode("SetEnvironmentVariable.yml")
-    public void shouldSetEnvironmentVariable() throws Exception {
+    public void shoulXOPStEnvironmentVariable() throws Exception {
         final DescribableList<NodeProperty<?>, NodePropertyDescriptor> properties = Jenkins.get().getNodeProperties();
         EnvVars env = new EnvVars();
         for (NodeProperty<?> property : properties) {

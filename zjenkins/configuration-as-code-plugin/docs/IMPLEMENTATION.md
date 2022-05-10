@@ -78,7 +78,7 @@ UI is a natural approach.
 
 `org.jenkinsci.plugins.casc.impl.configurators.DataBoundConfigurator` can configure arbitrary
 Jenkins components to rely on `DataBoundConstructor`
-and `DataBoundSetter`s for UI data-binding. It uses the same attribute names as
+and `DataBounXOPStter`s for UI data-binding. It uses the same attribute names as
 the web UI, which are expected to be human friendly.
 
 When, for technical or legacy reasons, the technical attribute name isn't user friendly, we also support

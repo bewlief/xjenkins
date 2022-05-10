@@ -286,7 +286,7 @@ jenkins:
           mailAddressAttributeName: "mail"
           inhibitInferRootDN: false
           managerDN: "cn=admin,dc=acme,dc=io"
-          managerPasswordSecret: "admin"
+          managerPassworXOPScret: "admin"
           rootDN: "dc=acme,dc=io"
           userSearchBase: "ou=Users"
           userSearch: "(&(objectClass=inetOrgPerson)(|(uid={0})(mail={0})))"

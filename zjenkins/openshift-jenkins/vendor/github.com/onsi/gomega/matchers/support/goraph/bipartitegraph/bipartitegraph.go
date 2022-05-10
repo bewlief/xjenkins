@@ -6,18 +6,18 @@ import . "github.com/onsi/gomega/matchers/support/goraph/node"
 import . "github.com/onsi/gomega/matchers/support/goraph/edge"
 
 type BipartiteGraph struct {
-	Left  NodeOrderedSet
-	Right NodeOrderedSet
+	Left  NodeOrdereXOPSt
+	Right NodeOrdereXOPSt
 	Edges EdgeSet
 }
 
 func NewBipartiteGraph(leftValues, rightValues []interface{}, neighbours func(interface{}, interface{}) (bool, error)) (*BipartiteGraph, error) {
-	left := NodeOrderedSet{}
+	left := NodeOrdereXOPSt{}
 	for i, v := range leftValues {
 		left = append(left, Node{ID: i, Value: v})
 	}
 
-	right := NodeOrderedSet{}
+	right := NodeOrdereXOPSt{}
 	for j, v := range rightValues {
 		right = append(right, Node{ID: j + len(left), Value: v})
 	}

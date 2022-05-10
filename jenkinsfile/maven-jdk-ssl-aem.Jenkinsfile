@@ -4,12 +4,12 @@ pipeline {
       label "k8s-maven3.6.3-jdk8"
       inheritFrom "alpine"
       cloud  "openshift"
-      namespace "dse-jenkins"
+      namespace "XOPS-jenkins"
       yaml """
 spec:
   containers:
   - name: k8s-maven3-jdk8
-    image: hub.artifactory.gcp.anz/maven:3.6.3-jdk-8
+    image: hub.artifactory.gcp.xhoe/maven:3.6.3-jdk-8
     securityContext:
       runAsUser: 0
     command:
@@ -32,7 +32,7 @@ spec:
             extensions                       : [],
             submoduleCfg                     : [],
             userRemoteConfigs                : [
-                        [credentialsId: 'xinj', url: "https://github.service.anz/dsso/content-aem"]
+                        [credentialsId: 'xinj', url: "https://github.service.xhoe/dsso/content-aem"]
                 ]
             ]
         )

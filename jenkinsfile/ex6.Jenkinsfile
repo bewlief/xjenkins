@@ -20,7 +20,7 @@ pipeline {
               STAGE_NAME = env.STAGE_NAME
 
               withCredentials([usernamePassword(
-              credentialsId: 'github-app-dse',
+              credentialsId: 'github-app-XOPS',
               usernameVariable: 'GITHUB_APP',
               passwordVariable: 'GITHUB_TOKEN')]) {
                 sh 'make version'
@@ -95,10 +95,10 @@ pipeline {
 
                     if (env.BRANCH_NAME == 'develop') {
                         artifactory.publish("${APP_NAME}/${BUILD_VERSION}/", "deployment-manifests.zip", [
-                            repository: "dse-generic-snapshots"])
+                            repository: "XOPS-generic-snapshots"])
                     } else {
                         artifactory.publish("${APP_NAME}/${BUILD_VERSION}/", "deployment-manifests.zip", [
-                            repository: "dse-generic-releases"])
+                            repository: "XOPS-generic-releases"])
                     }
                }
            }

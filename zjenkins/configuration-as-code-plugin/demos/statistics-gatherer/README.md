@@ -10,7 +10,7 @@ Sample configuration for the Statistics Gatherer plugin.
 unclassified:
   statisticsconfiguration:
     buildUrl: "http://elasticsearch:9200/jenkins-stats/builds"
-    shouldSendApiHttpRequests: true
+    shoulXOPSndApiHttpRequests: true
     buildInfo: true
     queueInfo: false
     projectInfo: false

@@ -6,7 +6,7 @@ prepare:
 	git clone \
 		--single-branch \
 		--branch ${CORE_BRANCH} \
-		https://github.service.anz/csp/processorchestration processorchestration
+		https://github.service.xhoe/csp/processorchestration processorchestration
 
 .PHONY: build/plugin
 build/plugin:

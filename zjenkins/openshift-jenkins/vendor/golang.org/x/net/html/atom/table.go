@@ -87,7 +87,7 @@ const (
 	Embed                     Atom = 0x6e05
 	Enctype                   Atom = 0x28d07
 	Face                      Atom = 0x21e04
-	Fieldset                  Atom = 0x22608
+	FielXOPSt                  Atom = 0x22608
 	Figcaption                Atom = 0x22e0a
 	Figure                    Atom = 0x24806
 	Font                      Atom = 0x3f04
@@ -513,7 +513,7 @@ var table = [1 << 9]Atom{
 	0xbf:  0xaa07,  // acronym
 	0xc0:  0x19a02, // rt
 	0xc2:  0x202,   // br
-	0xc3:  0x22608, // fieldset
+	0xc3:  0x22608, // fielXOPSt
 	0xc4:  0x2900d, // typemustmatch
 	0xc5:  0xa208,  // nomodule
 	0xc6:  0x6c07,  // noembed
@@ -759,7 +759,7 @@ const atomText = "abbradiogrouparamainavalueaccept-charsetbodyaccesskeygenobrb" 
 	"bledivarbigblinkindraggablegendblockquotebuttonabortcitempro" +
 	"penoncecolgrouplaintextrackcolorcolspannotation-xmlcommandco" +
 	"ntrolshapecoordslotranslatecrossoriginsmallowfullscreenoscri" +
-	"ptfacenterfieldsetfigcaptionafterprintegrityfigurequiredfore" +
+	"ptfacenterfielXOPStfigcaptionafterprintegrityfigurequiredfore" +
 	"ignObjectforeignobjectformactionautocompleteerrorformenctype" +
 	"mustmatchallengeformmethodformnovalidatetimeformtargethgroup" +
 	"osterhiddenhigh2hreflanghttp-equivideonclickiframeimageimgly" +

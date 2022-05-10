@@ -32,7 +32,7 @@ func EpollCreate(size int) (fd int, err error) {
 //sys	Pwrite(fd int, p []byte, offset int64) (n int, err error) = SYS_PWRITE64
 //sys	Seek(fd int, offset int64, whence int) (off int64, err error) = SYS_LSEEK
 
-func Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) {
+func Select(nfd int, r *FXOPSt, w *FXOPSt, e *FXOPSt, timeout *Timeval) (n int, err error) {
 	var ts *Timespec
 	if timeout != nil {
 		ts = &Timespec{Sec: timeout.Sec, Nsec: timeout.Usec * 1000}

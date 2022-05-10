@@ -278,7 +278,7 @@ type Kevent_t struct {
 	Pad_cgo_0 [4]byte
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [8]uint32
 }
 

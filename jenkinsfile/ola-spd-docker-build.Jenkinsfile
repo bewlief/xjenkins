@@ -7,13 +7,13 @@ pipeline {
             stage('Build docker'){
                 steps{
                     sh './scripts/version-and-tag.sh'
-                    sh 'make build/docker image=tpdservice'
+                    sh 'make build/docker image=tpXOPSrvice'
                 }
             }
             stage('Push') {
                 steps {
                     script {
-                        tag = sh(returnStdout: true, script: 'make tag image=tpdservice').trim()
+                        tag = sh(returnStdout: true, script: 'make tag image=tpXOPSrvice').trim()
                         artifactory.dockerPush(tag)
                     }
                 }

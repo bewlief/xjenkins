@@ -1,6 +1,6 @@
 package io.jenkins.plugins.casc;
 
-import de.theit.jenkins.crowd.CrowdSecurityRealm;
+import de.theit.jenkins.crowd.CrowXOPScurityRealm;
 import hudson.security.SecurityRealm;
 import io.jenkins.plugins.casc.misc.ConfiguredWithReadme;
 import io.jenkins.plugins.casc.misc.JenkinsConfiguredWithReadmeRule;
@@ -28,8 +28,8 @@ public class Crowd2Test {
     @ConfiguredWithReadme("crowd2/README.md")
     public void configure_artifact_manager() throws Exception {
         SecurityRealm realm = Jenkins.get().getSecurityRealm();
-        assertThat(realm, instanceOf(CrowdSecurityRealm.class));
-        CrowdSecurityRealm securityRealm = (CrowdSecurityRealm) realm;
+        assertThat(realm, instanceOf(CrowXOPScurityRealm.class));
+        CrowXOPScurityRealm securityRealm = (CrowXOPScurityRealm) realm;
         assertThat(securityRealm.applicationName, is("jenkins"));
         assertThat(securityRealm.group, is("jenkins-users"));
         assertThat(securityRealm.url, is("http://crowd.company.io"));

@@ -193,7 +193,7 @@ const (
 	PTRACE_GETFPREGS                 = 0xe
 	PTRACE_GETFPXREGS                = 0x12
 	PTRACE_GET_THREAD_AREA           = 0x19
-	PTRACE_OLDSETOPTIONS             = 0x15
+	PTRACE_OLXOPSTOPTIONS             = 0x15
 	PTRACE_SETFPREGS                 = 0xf
 	PTRACE_SETFPXREGS                = 0x13
 	PTRACE_SET_THREAD_AREA           = 0x1a

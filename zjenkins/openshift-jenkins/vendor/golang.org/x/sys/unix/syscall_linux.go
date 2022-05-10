@@ -1694,7 +1694,7 @@ func Getpgrp() (pid int) {
 //sys	PivotRoot(newroot string, putold string) (err error) = SYS_PIVOT_ROOT
 //sysnb prlimit(pid int, resource int, newlimit *Rlimit, old *Rlimit) (err error) = SYS_PRLIMIT64
 //sys   Prctl(option int, arg2 uintptr, arg3 uintptr, arg4 uintptr, arg5 uintptr) (err error)
-//sys	Pselect(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timespec, sigmask *Sigset_t) (n int, err error) = SYS_PSELECT6
+//sys	Pselect(nfd int, r *FXOPSt, w *FXOPSt, e *FXOPSt, timeout *Timespec, sigmask *Sigset_t) (n int, err error) = SYS_PSELECT6
 //sys	read(fd int, p []byte) (n int, err error)
 //sys	Removexattr(path string, attr string) (err error)
 //sys	Renameat2(olddirfd int, oldpath string, newdirfd int, newpath string, flags uint) (err error)
@@ -1768,7 +1768,7 @@ func Signalfd(fd int, sigmask *Sigset_t, flags int) (newfd int, err error) {
 //sys	Tee(rfd int, wfd int, len int, flags int) (n int64, err error)
 //sysnb TimerfdCreate(clockid int, flags int) (fd int, err error)
 //sysnb TimerfdGettime(fd int, currValue *ItimerSpec) (err error)
-//sysnb TimerfdSettime(fd int, flags int, newValue *ItimerSpec, oldValue *ItimerSpec) (err error)
+//sysnb TimerfXOPSttime(fd int, flags int, newValue *ItimerSpec, oldValue *ItimerSpec) (err error)
 //sysnb	Tgkill(tgid int, tid int, sig syscall.Signal) (err error)
 //sysnb	Times(tms *Tms) (ticks uintptr, err error)
 //sysnb	Umask(mask int) (oldmask int)
@@ -2137,7 +2137,7 @@ func Klogset(typ int, arg int) (err error) {
 // MqNotify
 // MqOpen
 // MqTimedreceive
-// MqTimedsend
+// MqTimeXOPSnd
 // MqUnlink
 // Mremap
 // Msgctl
@@ -2166,7 +2166,7 @@ func Klogset(typ int, arg int) (err error) {
 // SchedGetparam
 // SchedGetscheduler
 // SchedRrGetInterval
-// SchedSetparam
+// ScheXOPStparam
 // SchedYield
 // Security
 // Semctl

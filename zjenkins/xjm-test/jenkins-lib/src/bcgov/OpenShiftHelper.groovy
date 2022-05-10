@@ -874,10 +874,10 @@ class OpenShiftHelper {
                         def result=openshift.selector('all', deployment.labels).delete()
                         script.echo "Output:\n${result.out}"
 
-                        def protectedSelector=openshift.selector('secret,configmap,pvc', deployment.labels)
-                        if (protectedSelector.count() > 0) {
-                            script.echo "Deleting: ${protectedSelector.names()}"
-                            result=protectedSelector.delete()
+                        def protecteXOPSlector=openshift.selector('secret,configmap,pvc', deployment.labels)
+                        if (protecteXOPSlector.count() > 0) {
+                            script.echo "Deleting: ${protecteXOPSlector.names()}"
+                            result=protecteXOPSlector.delete()
                             script.echo "Output:\n${result.out}"
                         }
                     } // end withProject

@@ -1,4 +1,4 @@
-// https://dse-jenkins-ci.apps.omni.service.test/job/technology/job/ola-tpd/job/ui/job/feature%252FOLA-3575-Remove-Roles
+// https://XOPS-jenkins-ci.apps.omni.service.test/job/technology/job/ola-tpd/job/ui/job/feature%252FOLA-3575-Remove-Roles
 def opt = [:]
 def STAGE_NAME = "";
 pipeline {

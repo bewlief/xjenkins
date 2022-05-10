@@ -1,10 +1,10 @@
-// https://github.service.anz/dsso/newrelic-monitoring/blob/feature/SERS-3682/Jenkinsfile
+// https://github.service.xhoe/dsso/newrelic-monitoring/blob/feature/SERS-3682/Jenkinsfile
 pipeline {
   agent { label 'terraform-0.12.13' }
   environment {
     no_proxy = "$no_proxy"
     HTTPS_PROXY = "$HTTPS_PROXY"
-    TF_STATE_REPO = 'git@github.service.anz:dsso/newrelic-monitoring-states.git'
+    TF_STATE_REPO = 'git@github.service.xhoe:dsso/newrelic-monitoring-states.git'
     TF_STATE_DIR = '/tmp/tfstate'
     TF_CHANGE_PLAN = '/tmp/terraform-changes.plan'
   }
@@ -28,7 +28,7 @@ pipeline {
               extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: env.TF_STATE_DIR]],
               submoduleCfg: [],
               userRemoteConfigs: [[
-                  credentialsId: 'dse-jenkins-ssh',
+                  credentialsId: 'XOPS-jenkins-ssh',
                   url: env.TF_STATE_REPO
               ]]
           ]

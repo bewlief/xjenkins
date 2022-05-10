@@ -113,7 +113,7 @@ public class JobApi {
      * 获取 Job 基本信息
      */
     public void getJob() {
-        // https://dse-jenkins-ci.apps.omni.service.test/job/technology/job/arvin-xin/job/a1/
+        // https://XOPS-jenkins-ci.apps.omni.service.test/job/technology/job/arvin-xin/job/a1/
         try {
             // 获取 Job 信息
             JobWithDetails job = jenkinsServer.getJob("technology/arvin/a1");
@@ -182,7 +182,7 @@ public class JobApi {
 //                    System.out.println("Just a job");
 //                }
 
-                Optional<FolderJob> dd = jenkinsServer.getFolderJob(new Job("arvin-xin", "https://dse-jenkins-ci.apps.omni.service.test/job/technology/job/arvin-xin/"));
+                Optional<FolderJob> dd = jenkinsServer.getFolderJob(new Job("arvin-xin", "https://XOPS-jenkins-ci.apps.omni.service.test/job/technology/job/arvin-xin/"));
                 FolderJob mm = dd.get();
                 Map<String, Job> mk = mm.getJobs();
                 for (Job k : mk.values()) {

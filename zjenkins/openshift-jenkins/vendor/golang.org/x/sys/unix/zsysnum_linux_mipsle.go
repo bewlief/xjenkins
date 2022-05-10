@@ -279,7 +279,7 @@ const (
 	SYS_SET_MEMPOLICY                = 4270
 	SYS_MQ_OPEN                      = 4271
 	SYS_MQ_UNLINK                    = 4272
-	SYS_MQ_TIMEDSEND                 = 4273
+	SYS_MQ_TIMEXOPSND                 = 4273
 	SYS_MQ_TIMEDRECEIVE              = 4274
 	SYS_MQ_NOTIFY                    = 4275
 	SYS_MQ_GETSETATTR                = 4276
@@ -398,7 +398,7 @@ const (
 	SYS_PPOLL_TIME64                 = 4414
 	SYS_IO_PGETEVENTS_TIME64         = 4416
 	SYS_RECVMMSG_TIME64              = 4417
-	SYS_MQ_TIMEDSEND_TIME64          = 4418
+	SYS_MQ_TIMEXOPSND_TIME64          = 4418
 	SYS_MQ_TIMEDRECEIVE_TIME64       = 4419
 	SYS_SEMTIMEDOP_TIME64            = 4420
 	SYS_RT_SIGTIMEDWAIT_TIME64       = 4421

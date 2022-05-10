@@ -1,4 +1,4 @@
-@Library("dse-jobs") _
+@Library("XOPS-jobs") _
 
 pipeline {
     agent any

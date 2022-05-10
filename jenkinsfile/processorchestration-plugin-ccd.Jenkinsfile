@@ -6,7 +6,7 @@ pipeline {
       agent {
         docker {
           image 'builder/po:v2.0.2'
-          registryUrl 'https://dse-images.artifactory.gcp.anz'
+          registryUrl 'https://XOPS-images.artifactory.gcp.xhoe'
         }
       }
 

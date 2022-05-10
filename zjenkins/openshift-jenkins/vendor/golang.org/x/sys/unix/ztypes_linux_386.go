@@ -183,7 +183,7 @@ type PtraceRegs struct {
 	Xss      int32
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [32]int32
 }
 

@@ -68,8 +68,8 @@ const (
 	SYS_MPROTECT      = 74  // { int mprotect(void *addr, size_t len, int prot); }
 	SYS_MADVISE       = 75  // { int madvise(void *addr, size_t len, int behav); }
 	SYS_MINCORE       = 78  // { int mincore(const void *addr, size_t len, char *vec); }
-	SYS_GETGROUPS     = 79  // { int getgroups(u_int gidsetsize, gid_t *gidset); }
-	SYS_SETGROUPS     = 80  // { int setgroups(u_int gidsetsize, gid_t *gidset); }
+	SYS_GETGROUPS     = 79  // { int getgroups(u_int giXOPStsize, gid_t *giXOPSt); }
+	SYS_SETGROUPS     = 80  // { int setgroups(u_int giXOPStsize, gid_t *giXOPSt); }
 	SYS_GETPGRP       = 81  // { int getpgrp(void); }
 	SYS_SETPGID       = 82  // { int setpgid(int pid, int pgid); }
 	SYS_SETITIMER     = 83  // { int setitimer(u_int which, struct itimerval *itv, struct itimerval *oitv); }
@@ -283,7 +283,7 @@ const (
 	SYS_MQ_NOTIFY              = 515 // { int mq_notify(mqd_t mqdes, const struct sigevent *notification); }
 	SYS_MQ_SEND                = 516 // { int mq_send(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio); }
 	SYS_MQ_RECEIVE             = 517 // { ssize_t mq_receive(mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio); }
-	SYS_MQ_TIMEDSEND           = 518 // { int mq_timedsend(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct timespec *abs_timeout); }
+	SYS_MQ_TIMEXOPSND           = 518 // { int mq_timeXOPSnd(mqd_t mqdes, const char *msg_ptr, size_t msg_len, unsigned msg_prio, const struct timespec *abs_timeout); }
 	SYS_MQ_TIMEDRECEIVE        = 519 // { ssize_t mq_timedreceive(mqd_t mqdes, char *msg_ptr, size_t msg_len, unsigned *msg_prio, const struct timespec *abs_timeout); }
 	SYS_IOPRIO_SET             = 520 // { int ioprio_set(int which, int who, int prio); }
 	SYS_IOPRIO_GET             = 521 // { int ioprio_get(int which, int who); }

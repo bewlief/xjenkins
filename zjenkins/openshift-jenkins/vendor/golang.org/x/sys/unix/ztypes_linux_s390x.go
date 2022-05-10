@@ -195,7 +195,7 @@ type PtracePer struct {
 	_             [7]byte
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [16]int64
 }
 

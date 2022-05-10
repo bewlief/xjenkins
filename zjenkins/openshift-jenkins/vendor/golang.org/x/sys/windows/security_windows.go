@@ -419,7 +419,7 @@ const (
 	WinCapabilityEnterpriseAuthenticationSid      = 93
 	WinCapabilityRemovableStorageSid              = 94
 	WinBuiltinRDSRemoteAccessServersSid           = 95
-	WinBuiltinRDSEndpointServersSid               = 96
+	WinBuiltinRXOPSndpointServersSid               = 96
 	WinBuiltinRDSManagementServersSid             = 97
 	WinUserModeDriversSid                         = 98
 	WinBuiltinHyperVAdminsSid                     = 99
@@ -1104,10 +1104,10 @@ type OBJECTS_AND_NAME struct {
 
 //sys	getSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetSecurityInfo
 //sys	SetSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) = advapi32.SetSecurityInfo
-//sys	getNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetNamedSecurityInfoW
-//sys	SetNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetNamedSecurityInfoW
+//sys	getNameXOPScurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner **SID, group **SID, dacl **ACL, sacl **ACL, sd **SECURITY_DESCRIPTOR) (ret error) = advapi32.GetNameXOPScurityInfoW
+//sys	SetNameXOPScurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION, owner *SID, group *SID, dacl *ACL, sacl *ACL) (ret error) = advapi32.SetNameXOPScurityInfoW
 
-//sys	buildSecurityDescriptor(owner *TRUSTEE, group *TRUSTEE, countAccessEntries uint32, accessEntries *EXPLICIT_ACCESS, countAuditEntries uint32, auditEntries *EXPLICIT_ACCESS, oldSecurityDescriptor *SECURITY_DESCRIPTOR, sizeNewSecurityDescriptor *uint32, newSecurityDescriptor **SECURITY_DESCRIPTOR) (ret error) = advapi32.BuildSecurityDescriptorW
+//sys	builXOPScurityDescriptor(owner *TRUSTEE, group *TRUSTEE, countAccessEntries uint32, accessEntries *EXPLICIT_ACCESS, countAuditEntries uint32, auditEntries *EXPLICIT_ACCESS, olXOPScurityDescriptor *SECURITY_DESCRIPTOR, sizeNewSecurityDescriptor *uint32, newSecurityDescriptor **SECURITY_DESCRIPTOR) (ret error) = advapi32.BuilXOPScurityDescriptorW
 //sys	initializeSecurityDescriptor(absoluteSD *SECURITY_DESCRIPTOR, revision uint32) (err error) = advapi32.InitializeSecurityDescriptor
 
 //sys	getSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, control *SECURITY_DESCRIPTOR_CONTROL, revision *uint32) (err error) = advapi32.GetSecurityDescriptorControl
@@ -1117,7 +1117,7 @@ type OBJECTS_AND_NAME struct {
 //sys	getSecurityDescriptorGroup(sd *SECURITY_DESCRIPTOR, group **SID, groupDefaulted *bool) (err error) = advapi32.GetSecurityDescriptorGroup
 //sys	getSecurityDescriptorLength(sd *SECURITY_DESCRIPTOR) (len uint32) = advapi32.GetSecurityDescriptorLength
 //sys	getSecurityDescriptorRMControl(sd *SECURITY_DESCRIPTOR, rmControl *uint8) (ret error) [failretval!=0] = advapi32.GetSecurityDescriptorRMControl
-//sys	isValidSecurityDescriptor(sd *SECURITY_DESCRIPTOR) (isValid bool) = advapi32.IsValidSecurityDescriptor
+//sys	isValiXOPScurityDescriptor(sd *SECURITY_DESCRIPTOR) (isValid bool) = advapi32.IsValiXOPScurityDescriptor
 
 //sys	setSecurityDescriptorControl(sd *SECURITY_DESCRIPTOR, controlBitsOfInterest SECURITY_DESCRIPTOR_CONTROL, controlBitsToSet SECURITY_DESCRIPTOR_CONTROL) (err error) = advapi32.SetSecurityDescriptorControl
 //sys	setSecurityDescriptorDacl(sd *SECURITY_DESCRIPTOR, daclPresent bool, dacl *ACL, daclDefaulted bool) (err error) = advapi32.SetSecurityDescriptorDacl
@@ -1219,7 +1219,7 @@ func (sd *SECURITY_DESCRIPTOR) Length() uint32 {
 
 // IsValid returns whether the security descriptor is valid.
 func (sd *SECURITY_DESCRIPTOR) IsValid() bool {
-	return isValidSecurityDescriptor(sd)
+	return isValiXOPScurityDescriptor(sd)
 }
 
 // String returns the SDDL form of the security descriptor, with a function signature that can be
@@ -1346,11 +1346,11 @@ func GetSecurityInfo(handle Handle, objectType SE_OBJECT_TYPE, securityInformati
 	return winHeapSD.copySelfRelativeSecurityDescriptor(), nil
 }
 
-// GetNamedSecurityInfo queries the security information for a given named object and returns the self-relative security
+// GetNameXOPScurityInfo queries the security information for a given named object and returns the self-relative security
 // descriptor result on the Go heap.
-func GetNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION) (sd *SECURITY_DESCRIPTOR, err error) {
+func GetNameXOPScurityInfo(objectName string, objectType SE_OBJECT_TYPE, securityInformation SECURITY_INFORMATION) (sd *SECURITY_DESCRIPTOR, err error) {
 	var winHeapSD *SECURITY_DESCRIPTOR
-	err = getNamedSecurityInfo(objectName, objectType, securityInformation, nil, nil, nil, nil, &winHeapSD)
+	err = getNameXOPScurityInfo(objectName, objectType, securityInformation, nil, nil, nil, nil, &winHeapSD)
 	if err != nil {
 		return
 	}
@@ -1358,10 +1358,10 @@ func GetNamedSecurityInfo(objectName string, objectType SE_OBJECT_TYPE, security
 	return winHeapSD.copySelfRelativeSecurityDescriptor(), nil
 }
 
-// BuildSecurityDescriptor makes a new security descriptor using the input trustees, explicit access lists, and
+// BuilXOPScurityDescriptor makes a new security descriptor using the input trustees, explicit access lists, and
 // prior security descriptor to be merged, any of which can be nil, returning the self-relative security descriptor
 // result on the Go heap.
-func BuildSecurityDescriptor(owner *TRUSTEE, group *TRUSTEE, accessEntries []EXPLICIT_ACCESS, auditEntries []EXPLICIT_ACCESS, mergedSecurityDescriptor *SECURITY_DESCRIPTOR) (sd *SECURITY_DESCRIPTOR, err error) {
+func BuilXOPScurityDescriptor(owner *TRUSTEE, group *TRUSTEE, accessEntries []EXPLICIT_ACCESS, auditEntries []EXPLICIT_ACCESS, mergeXOPScurityDescriptor *SECURITY_DESCRIPTOR) (sd *SECURITY_DESCRIPTOR, err error) {
 	var winHeapSD *SECURITY_DESCRIPTOR
 	var winHeapSDSize uint32
 	var firstAccessEntry *EXPLICIT_ACCESS
@@ -1372,7 +1372,7 @@ func BuildSecurityDescriptor(owner *TRUSTEE, group *TRUSTEE, accessEntries []EXP
 	if len(auditEntries) > 0 {
 		firstAuditEntry = &auditEntries[0]
 	}
-	err = buildSecurityDescriptor(owner, group, uint32(len(accessEntries)), firstAccessEntry, uint32(len(auditEntries)), firstAuditEntry, mergedSecurityDescriptor, &winHeapSDSize, &winHeapSD)
+	err = builXOPScurityDescriptor(owner, group, uint32(len(accessEntries)), firstAccessEntry, uint32(len(auditEntries)), firstAuditEntry, mergeXOPScurityDescriptor, &winHeapSDSize, &winHeapSD)
 	if err != nil {
 		return
 	}

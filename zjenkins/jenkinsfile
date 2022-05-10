@@ -9,16 +9,16 @@ jenkins:
   viewsTabBar: "standard"
   projectNamingStrategy: "standard"
   aopdemo.proxy:
-    name: "PXYAU301MELC001.ecorptst.anz.com"
-    noProxyHost: "dcxcheckmarx.service.anz,github.service.anz,localhost,.service.dev,.service.anz,federation-qa.globaltest.anz.com,.artifactory.gcp.anz,artifactory.gcp.anz,172.30.82.113,172.30.24.169"
+    name: "proxy001.xhoe.com"
+    noProxyHost: "dcxcheckmarx.service.xhoe,github.service.xhoe,localhost,.service.dev,.service.xhoe,federation-qa.globaltest.xhoe.com,.artifactory.gcp.xhoe,artifactory.gcp.xhoe,172.30.82.113,172.30.24.169"
     port: 80
 
   authorizationStrategy:
     projectMatrix:
       permissions:
-        - "Overall/Administer:DSE Jenkins"
-        - "Overall/Read:DSE Engineering Chapter Leads"
-        - "Overall/Read:DSE Devs"
+        - "Overall/Administer:XOPS Jenkins"
+        - "Overall/Read:XOPS Engineering Chapter Leads"
+        - "Overall/Read:XOPS Devs"
         - "Overall/Read:DSSO Testers"
 
   securityRealm:
@@ -28,9 +28,9 @@ jenkins:
         - bindName: global\${JENKINS_GLOBAL_AD_USERNAME}
           bindPassword: ${JENKINS_GLOBAL_AD_PASSWORD}
           name: ${JENKINS_GLOBAL_AD_DOMAIN}
-          servers: "global-ldap.lb.apps.anz:3268"
+          servers: "global-ldap.lb.apps.xhoe:3268"
           tlsConfiguration: TRUST_ALL_CERTIFICATES
-      # Only RECURSIVE works with ANZ GLOBAL AD anyway
+      # Only RECURSIVE works with xhoe GLOBAL AD anyway
       groupLookupStrategy: RECURSIVE
       removeIrrelevantGroups: false
       startTls: true
@@ -39,11 +39,11 @@ jenkins:
     - envVars:
         env:
           - key: "http_proxy"
-            value: "http://PXYAU301MELC001.ecorptst.anz.com:80"
+            value: "http://proxy001.xhoe.com:80"
           - key: "https_proxy"
-            value: "http://PXYAU301MELC001.ecorptst.anz.com:80"
+            value: "http://proxy001.xhoe.com:80"
           - key: "no_proxy"
-            value: "dcxcheckmarx.service.anz,github.service.anz,localhost,.service.dev,.service.anz,federation-qa.globaltest.anz.com,.artifactory.gcp.anz,artifactory.gcp.anz,172.30.82.113,172.30.24.169"
+            value: "dcxcheckmarx.service.xhoe,github.service.xhoe,localhost,.service.dev,.service.xhoe,federation-qa.globaltest.xhoe.com,.artifactory.gcp.xhoe,artifactory.gcp.xhoe,172.30.82.113,172.30.24.169"
           - key: "JENKINS_SLACK_HOOK_URL"
             value: https://hooks.slack.com/services/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
           - key: "JENKINS_ARTIFACTORY_NPM_USERNAME" # placeholder for npm
@@ -64,7 +64,7 @@ jenkins:
         jenkinsUrl: "http://172.30.24.169:80"
         maxRequestsPerHostStr: "32"
         name: "openshift"
-        namespace: "dse-jenkins"
+        namespace: "XOPS-jenkins"
         serverCertificate: |-
           -----BEGIN CERTIFICATE-----
           MIIC6jCCAdKgAwIBAgIBATANBgkqhkiG9w0BAQsFADAmMSQwIgYDVQQDDBtvcGVu
@@ -79,7 +79,7 @@ jenkins:
           AgMBAAGjIzAhMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMBAf8EBTADAQH/MA0GCSqG
           SIb3DQEBCwUAA4IBAQBMa7MiN3wFzudeKQo7c7Opnb1yZmB6E7NttYlEMIjlyi8F
           ipy0sjFzSHbWZcHQoiMsEq0EvrJrrq4jBb3Qmb+kP1mGqHgNpC/g76SYfQQweWw3
-          o6Q7GYL9rW16ePi1T3sIeATS89Zb4MyHF1kWyi0cQAqM2DSE/EFsBsfXWIHKREi6
+          o6Q7GYL9rW16ePi1T3sIeATS89Zb4MyHF1kWyi0cQAqM2XOPS/EFsBsfXWIHKREi6
           3+6Een4JNANW/71IW7vIrypDrpOEwH5EM5/9vxUrgoFyAcruffUpyhJmoNPfHe0X
           ks/R+AVKIElJvBzeMO+/s3UWt/AdREjxWTwPg/HS+3ukzFCiukzO3tvpDCM87met
           ByAAlxNnEfklHDEvI2XaE0jXOWLVFzAe2vrbG66A
@@ -89,7 +89,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-aws-cli:1.0.0
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-aws-cli:1.0.0
                 name: "jnlp"
                 workingDir: "/tmp"
             label: "aws-cli"
@@ -103,7 +103,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs-12:1.0.4
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12:1.0.4
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -124,7 +124,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs-8-build-utils:v2.0.3
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils:v2.0.3
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -145,7 +145,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs-8-build-utils-oracle:v2.0.6
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils-oracle:v2.0.6
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -166,7 +166,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs-12-build-utils:1.0.4
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12-build-utils:1.0.4
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -187,7 +187,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs-14:1.0.0
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-14:1.0.0
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -208,7 +208,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-nodejs:1.0.7
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs:1.0.7
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -229,7 +229,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine
                 name: "jnlp"
                 workingDir: "/tmp"
             label: "alpine"
@@ -243,7 +243,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/alpine-docker:2.0
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-docker:2.0
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -251,7 +251,7 @@ jenkins:
                       key: "DOCKER_HOST"
                       value: "tcp://localhost:2375"
               - alwaysPullImage: false
-                image: dse-images.artifactory.gcp.anz/jenkins-agent/dind:v2.0.4
+                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/dind:v2.0.4
                 privileged: true
                 name: "dind"
                 envVars:
@@ -274,22 +274,22 @@ credentials:
               id: "1a12dfa4-7fc5-47a7-aa17-cc56572a41c7"
               scope: GLOBAL
           - basicSSHUserPrivateKey:
-              id: "dse-jenkins-ssh"
+              id: "XOPS-jenkins-ssh"
               description: GitHub SSH Key
               passphrase: ${JENKINS_SSH_PASS}
               privateKeySource:
                 directEntry:
                   privateKey: ${JENKINS_SSH_KEY}
               scope: GLOBAL
-              username: "dse-jenkins-ssh"
+              username: "XOPS-jenkins-ssh"
           - usernamePassword:
-              id: "dse-jenkins-aws-nonprod"
+              id: "XOPS-jenkins-aws-nonprod"
               description: AWS Non-Prod Credentials
               password: ${JENKINS_AWS_SECRET_ACCESS_KEY}
               scope: GLOBAL
               username: ${JENKINS_AWS_ACCESS_KEY_ID}
           - usernamePassword:
-              id: "dse-jenkins-checkmarx"
+              id: "XOPS-jenkins-checkmarx"
               description: CheckMarx Credentials
               password: ${JENKINS_CHECKMARX_PASS}
               scope: GLOBAL
@@ -337,9 +337,9 @@ credentials:
               secret: ${JENKINS_SLACK_PLUGIN_TOKEN}
           - gitHubApp:
               appID: "36"
-              description: "DSE Jenkins GitHub App"
-              id: "github-app-dse"
-              apiUri: https://github.service.anz/api/v3
+              description: "XOPS Jenkins GitHub App"
+              id: "github-app-XOPS"
+              apiUri: https://github.service.xhoe/api/v3
               privateKey: "${JENKINS_GITHUB_APP_KEY}"
           - string:
               id: "apply-tools-os-deployer-token"
@@ -348,12 +348,12 @@ credentials:
               secret: ${JENKINS_APPLY_TOOLS_OS_DEPLOYER_TOKEN}
           - string:
               id: "new-relic-api-key-non-prod"
-              description: DSE New Relic API Key - Non Prod
+              description: XOPS New Relic API Key - Non Prod
               scope: GLOBAL
               secret: ${JENKINS_NEW_RELIC_API_KEY_NON_PROD}
           - string:
               id: "new-relic-api-key-prod"
-              description: DSE New Relic API Key - Prod
+              description: XOPS New Relic API Key - Prod
               scope: GLOBAL
               secret: ${JENKINS_NEW_RELIC_API_KEY_PROD}
 
@@ -368,9 +368,9 @@ jobs:
         scm {
           git {
             remote {
-              url('git@github.service.anz:dsso/jenkins-jobs.git')
+              url('git@github.service.xhoe:dsso/jenkins-jobs.git')
               branch('master')
-              credentials('dse-jenkins-ssh')
+              credentials('XOPS-jenkins-ssh')
             }
           }
         }
@@ -396,48 +396,48 @@ security:
 
 unclassified:
   location:
-    adminAddress: "dse-jenkins@anz.com"
-    url: "https://dse-jenkins-ci.apps.omni.service.test/"
+    adminAddress: "XOPS-jenkins@xhoe.com"
+    url: "https://XOPS-jenkins-ci.apps.omni.service.test/"
   gitSCM:
     createAccountBasedOnEmail: false
-    globalConfigEmail: "dse-jenkins@anz.com"
-    globalConfigName: "DSE-Jenkins"
+    globalConfigEmail: "XOPS-jenkins@xhoe.com"
+    globalConfigName: "XOPS-Jenkins"
     showEntireCommitSummaryInChanges: false
     useExistingAccountWithSameEmail: false
 
   cxScanBuilder:
-    credentialsId: "dse-jenkins-checkmarx"
+    credentialsId: "XOPS-jenkins-checkmarx"
     enableCertificateValidation: false
-    serverUrl: "https://dcxcheckmarx.service.anz"
+    serverUrl: "https://dcxcheckmarx.service.xhoe"
 
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
     endpoints:
-      - apiUri: "https://github.service.anz/api/v3"
-        name: "ANZ GitHub"
+      - apiUri: "https://github.service.xhoe/api/v3"
+        name: "xhoe GitHub"
   globalLibraries:
     libraries:
       - allowVersionOverride: true
         defaultVersion: "master"
         includeInChangesets: false
         implicit: true
-        name: "dse-jobs"
+        name: "XOPS-jobs"
         retriever:
           modernSCM:
             scm:
               git:
-                credentialsId: "dse-jenkins-ssh"
+                credentialsId: "XOPS-jenkins-ssh"
                 id: "285f0138-3225-4772-9a62-a94680515834"
-                remote: "git@github.service.anz:dsso/jenkins-lib.git"
+                remote: "git@github.service.xhoe:dsso/jenkins-lib.git"
                 traits:
                   - "gitBranchDiscovery"
   pipeline-model-docker:
     dockerLabel: "dind"
     registry:
-      url: "https://hub.artifactory.gcp.anz/"
+      url: "https://hub.artifactory.gcp.xhoe/"
   slackNotifier:
     botUser: false
     room: "#jenkins-alerts"
     sendAsText: false
-    teamDomain: "anzdse"
+    teamDomain: "xhoeXOPS"
     tokenCredentialId: "slack-jenkins-plugin-token"

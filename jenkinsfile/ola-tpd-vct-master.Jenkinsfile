@@ -2,7 +2,7 @@ pipeline {
     agent { label 'dind' }
     environment {
         KATALON_API_KEY = credentials('jenkins-katalon-api-key')
-        no_proxy = "$no_proxy, *.dev.anz"
+        no_proxy = "$no_proxy, *.dev.xhoe"
     }
     stages {
         stage('Parameters') {

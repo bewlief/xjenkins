@@ -107,7 +107,7 @@ public class DataBoundConfigurator<T> extends BaseConfigurator<T> {
         Object[] args = new Object[names.length];
 
         if (parameters.length > 0) {
-            // Many jenkins components haven't been migrated to @DataBoundSetter vs @NotNull constructor parameters
+            // Many jenkins components haven't been migrated to @DataBounXOPStter vs @NotNull constructor parameters
             // as a result it might be valid to reference a describable without parameters
 
             for (int i = 0; i < names.length; i++) {
@@ -273,7 +273,7 @@ public class DataBoundConfigurator<T> extends BaseConfigurator<T> {
     public CNode describe(T instance, ConfigurationContext context) throws Exception {
 
         // Here we assume a correctly designed DataBound Object will have required attributes set by DataBoundConstructor
-        // and all others using DataBoundSetters. So constructor parameters for sure are part of the description, others
+        // and all others using DataBounXOPStters. So constructor parameters for sure are part of the description, others
         // need to be compared with default values.
 
         // Build same object with only constructor parameters

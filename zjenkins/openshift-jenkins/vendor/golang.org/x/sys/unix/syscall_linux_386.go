@@ -83,7 +83,7 @@ func Pipe2(p []int, flags int) (err error) {
 //sys	Ustat(dev int, ubuf *Ustat_t) (err error)
 //sysnb	getgroups(n int, list *_Gid_t) (nn int, err error) = SYS_GETGROUPS32
 //sysnb	setgroups(n int, list *_Gid_t) (err error) = SYS_SETGROUPS32
-//sys	Select(nfd int, r *FdSet, w *FdSet, e *FdSet, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
+//sys	Select(nfd int, r *FXOPSt, w *FXOPSt, e *FXOPSt, timeout *Timeval) (n int, err error) = SYS__NEWSELECT
 
 //sys	mmap2(addr uintptr, length uintptr, prot int, flags int, fd int, pageOffset uintptr) (xaddr uintptr, err error)
 //sys	Pause() (err error)

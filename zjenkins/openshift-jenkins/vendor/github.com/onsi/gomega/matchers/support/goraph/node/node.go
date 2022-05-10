@@ -5,4 +5,4 @@ type Node struct {
 	Value interface{}
 }
 
-type NodeOrderedSet []Node
+type NodeOrdereXOPSt []Node

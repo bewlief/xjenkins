@@ -12,7 +12,7 @@ import org.jenkinsci.Symbol;
 import org.junit.Rule;
 import org.junit.Test;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBounXOPStter;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -55,7 +55,7 @@ public class DuplicateKeyDescribableConfiguratorTest {
             return fooBar;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setFooBar(FooBar fooBar) {
             this.fooBar = fooBar;
         }
@@ -84,7 +84,7 @@ public class DuplicateKeyDescribableConfiguratorTest {
             return foo;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setFoo(String foo) {
             this.foo = foo;
         }
@@ -93,7 +93,7 @@ public class DuplicateKeyDescribableConfiguratorTest {
             return bar;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setBar(String bar) {
             this.bar = bar;
         }

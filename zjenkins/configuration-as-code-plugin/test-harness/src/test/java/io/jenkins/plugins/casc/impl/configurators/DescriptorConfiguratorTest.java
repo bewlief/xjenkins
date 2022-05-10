@@ -8,7 +8,7 @@ import jenkins.model.GlobalConfiguration;
 import org.junit.Rule;
 import org.junit.Test;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBounXOPStter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -56,7 +56,7 @@ public class DescriptorConfiguratorTest {
             return foo;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setFoo(String foo) {
             this.foo = foo;
         }
@@ -66,7 +66,7 @@ public class DescriptorConfiguratorTest {
             return bar;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setBar(String bar) {
             this.bar = bar;
         }

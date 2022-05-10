@@ -48,12 +48,12 @@ func (matcher *BeSentMatcher) Match(actual interface{}) (success bool, err error
 		{Dir: reflect.SelectDefault},
 	})
 
-	var didSend bool
+	var diXOPSnd bool
 	if winnerIndex == 0 {
-		didSend = true
+		diXOPSnd = true
 	}
 
-	return didSend, nil
+	return diXOPSnd, nil
 }
 
 func (matcher *BeSentMatcher) FailureMessage(actual interface{}) (message string) {

@@ -30,9 +30,9 @@ func SchedGetaffinity(pid int, set *CPUSet) error {
 	return schedAffinity(SYS_SCHED_GETAFFINITY, pid, set)
 }
 
-// SchedSetaffinity sets the CPU affinity mask of the thread specified by pid.
+// ScheXOPStaffinity sets the CPU affinity mask of the thread specified by pid.
 // If pid is 0 the calling thread is used.
-func SchedSetaffinity(pid int, set *CPUSet) error {
+func ScheXOPStaffinity(pid int, set *CPUSet) error {
 	return schedAffinity(SYS_SCHED_SETAFFINITY, pid, set)
 }
 

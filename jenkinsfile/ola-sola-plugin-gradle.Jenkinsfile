@@ -6,7 +6,7 @@ pipeline {
       agent {
         docker {
           image 'builder/po:v2.0.2'
-          registryUrl 'https://dse-images.artifactory.gcp.anz'
+          registryUrl 'https://XOPS-images.artifactory.gcp.xhoe'
         }
       }
 
@@ -29,7 +29,7 @@ pipeline {
             script {
               echo "Current PatchNumber: ${env.PATCHNUM}"
               withCredentials([usernamePassword(
-                credentialsId: 'github-app-dse',
+                credentialsId: 'github-app-XOPS',
                 usernameVariable: 'GITHUB_APP',
                 passwordVariable: 'GITHUB_TOKEN')]) {
                 sh 'make tag'

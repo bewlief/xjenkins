@@ -200,7 +200,7 @@ type PtraceRegs struct {
 	T6  uint64
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [16]int64
 }
 

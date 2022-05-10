@@ -272,7 +272,7 @@ type Kevent_t struct {
 	Udata  int32
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [8]uint32
 }
 

@@ -1,4 +1,4 @@
-    // https://github.service.anz/dsso/shareholder-annual-report-2019/blob/master/Jenkinsfile
+    // https://github.service.xhoe/dsso/shareholder-annual-report-2019/blob/master/Jenkinsfile
     stage('Zip Sourcecode') {
       steps {
         sh "make bundle"

@@ -23,7 +23,7 @@ public class UpdateCenterConfiguratorTest {
 
     @Test
     @ConfiguredWithCode("UpdateCenter.yml")
-    public void shouldSetUpdateCenterSites() throws Exception {
+    public void shoulXOPStUpdateCenterSites() throws Exception {
         UpdateCenter updateCenter = j.jenkins.getUpdateCenter();
         List<UpdateSite> sites = updateCenter.getSites();
         assertEquals(2, sites.size());

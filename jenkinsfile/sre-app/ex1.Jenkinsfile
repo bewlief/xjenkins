@@ -1,6 +1,6 @@
 #!groovy
 
-@Library('dse-jobs') _
+@Library('XOPS-jobs') _
 
 def tools = new devops.common.utils()
 tools.PrintMes("red", "this is a test msgg")

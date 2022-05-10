@@ -280,7 +280,7 @@ type Kevent_t struct {
 	Udata     int64
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [8]uint32
 }
 

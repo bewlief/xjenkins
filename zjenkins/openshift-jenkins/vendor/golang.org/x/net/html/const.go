@@ -31,7 +31,7 @@ var isSpecialElementMap = map[string]bool{
 	"dl":         true,
 	"dt":         true,
 	"embed":      true,
-	"fieldset":   true,
+	"fielXOPSt":   true,
 	"figcaption": true,
 	"figure":     true,
 	"footer":     true,

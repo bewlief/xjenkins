@@ -1,4 +1,4 @@
-// https://github.service.anz/dsso/tocsin-jobs/blob/master/Jenkinsfile
+// https://github.service.xhoe/dsso/tocsin-jobs/blob/master/Jenkinsfile
 pipeline {
   agent none
   stages {

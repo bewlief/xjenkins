@@ -22,7 +22,7 @@ import org.apache.commons.lang.StringUtils;
 import org.kohsuke.accmod.Restricted;
 import org.kohsuke.accmod.restrictions.NoExternalUse;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBounXOPStter;
 
 /**
  * @author <a href="mailto:nicolas.deloof@gmail.com">Nicolas De Loof</a>
@@ -127,17 +127,17 @@ public class HudsonPrivateSecurityRealmConfigurator extends DataBoundConfigurato
             this.password = password;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setName(String name) {
             this.name = name;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setDescription(String description) {
             this.description = description;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setProperties(List<UserProperty> properties) {
             this.properties = properties;
         }

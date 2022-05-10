@@ -175,7 +175,7 @@ type PtraceRegs struct {
 	Cause    uint64
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [16]int64
 }
 

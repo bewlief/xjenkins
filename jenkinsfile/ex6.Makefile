@@ -1,7 +1,7 @@
 tag=$(shell cat .version)
-repo=omni-releases.artifactory.gcp.anz
-dtr_registry=dtrqa.docker.service.anz
-dtr_repo=dse-prepop-bff-prv-auth-qa1
+repo=omni-releases.artifactory.gcp.xhoe
+dtr_registry=dtrqa.docker.service.xhoe
+dtr_repo=XOPS-prepop-bff-prv-auth-qa1
 image_type=csp
 image=colabff
 TAG_NAME=$(repo)/$(image_type)/$(image):$(tag)

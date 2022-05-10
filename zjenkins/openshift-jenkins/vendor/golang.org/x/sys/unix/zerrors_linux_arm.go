@@ -197,7 +197,7 @@ const (
 	PTRACE_GETVFPREGS                = 0x1b
 	PTRACE_GETWMMXREGS               = 0x12
 	PTRACE_GET_THREAD_AREA           = 0x16
-	PTRACE_OLDSETOPTIONS             = 0x15
+	PTRACE_OLXOPSTOPTIONS             = 0x15
 	PTRACE_SETCRUNCHREGS             = 0x1a
 	PTRACE_SETFPREGS                 = 0xf
 	PTRACE_SETHBPREGS                = 0x1e

@@ -136,7 +136,7 @@ Then, we are going to build a new test container image with:
 
 which employs an OpenShift Docker Strategy Build, using this [Dockerfile](https://github.com/openshift/jenkins/blob/master/test-e2e/Dockerfile) for the docker build.  And the buid is adding a [script](https://github.com/openshift/jenkins/blob/master/test-e2e/tag-in-image.sh) that will tag the Jenkins images created during the PRs build into the test cluster's jenkins imagestream in the openshift namespace.  The `to: tests` line updates the existing test image.  It is literally storing the output image from the OpenShift Docker Strategy Build into the `tests` ImageStreamTag in the CI systems's internal ImageStreams.  
 
-Next, this stanza is for the main jenkins image:
+Next, this stxhoea is for the main jenkins image:
 
 ```
 - dockerfile_path: Dockerfile
@@ -150,12 +150,12 @@ Next, this stanza is for the main jenkins image:
 
 ```
 
-Let's dive into this stanza:
+Let's dive into this stxhoea:
 * As with updating the test image, this yaml is short hand for defining an OpenShift Docker Build Strategy build, and it does a Docker build with:
     * `from: base` is an imagestreamtag to the latest 3.11.x OpenShift CLI image ... that gets substituted into the Dockerfile's FROM clause for the Docker build
     * `Dockerfile` means we will literally using the `Dockerfile` at the `source_path`, where the `/go/src/github.com/openshift/jenkins/2/.` corresponds to the `git checkout` for the git branch we are testing.
     * the `to: 2-centos` tells `ci-operator` to set the output of the Docker Build Strategy build to an imagestreamtag named `2-centos` in the test artifacts.  Then, `ci-operator` takes all such imagestremtag names, converts them to upper case, and then sets `IMAGE_<TAG NAME>` environment variables into the test system
-* There are similar stanzas for the `slave-base`, `agent-maven-3.5`, and `agent-nodejs-8` images.  
+* There are similar stxhoeas for the `slave-base`, `agent-maven-3.5`, and `agent-nodejs-8` images.  
 
 But again, since we do not have imagestreams defined for those slave/agent images in 3.x, we have to do some more manipulation of the Prow setup. With that, let's move onto the `ci-operator/jobs` definitions for 3.11.
 
@@ -168,14 +168,14 @@ The most relevant pieces of the presubmit (aside from a bunch of Prow and ci-ope
   - agent: kubernetes
 ```
 
-* There are unique Prow definitions for each branch a given repo.  So this stanza signifies that this handles PRs for the `openshift-3.11` branch of the jenkins repo:
+* There are unique Prow definitions for each branch a given repo.  So this stxhoea signifies that this handles PRs for the `openshift-3.11` branch of the jenkins repo:
 
 ```
     branches:
     - openshift-3.11
 ```
 
-* If the building of the image fails for some reason within a PR (`yum mirror` flake during RPM install, Jenkins update center flake during plugin download, a bug in your PR), you can re-run the OpenShift Docker Strategy build defined in the securitydemo.config via a `/test image` comment made to the PR, which maps to the ci-operator definition with the stanza:
+* If the building of the image fails for some reason within a PR (`yum mirror` flake during RPM install, Jenkins update center flake during plugin download, a bug in your PR), you can re-run the OpenShift Docker Strategy build defined in the securitydemo.config via a `/test image` comment made to the PR, which maps to the ci-operator definition with the stxhoea:
 
 ```
     rerun_command: /test images
@@ -187,7 +187,7 @@ The most relevant pieces of the presubmit (aside from a bunch of Prow and ci-ope
     rerun_command: /test e2e-gcp
 ```
 
-* To trigger the tagging of the PRs newly build Jenkins image into the test cluster, this stanza sets up an environment variable that allows code down the line to call that script we mounted into the test container earlier:
+* To trigger the tagging of the PRs newly build Jenkins image into the test cluster, this stxhoea sets up an environment variable that allows code down the line to call that script we mounted into the test container earlier:
 
 ```
         - name: PREPARE_COMMAND
@@ -227,7 +227,7 @@ To update the agent images used, the `IMAGE_MAVEN_AGENT` and `IMAGE_NODEJS_AGENT
 So, by comparison, the `ci-operator/securitydemo.config` for the master branch is [here](https://github.com/openshift/release/blob/master/ci-operator/securitydemo.config/openshift/jenkins/openshift-jenkins-master.yaml).  As versions of 4.x accumulate, you'll see more `openshift-jenkins-<branch name>.yaml` files in that directory.  As of this writing, the initial GA of 4.x has not occurred.
 
 Key differences from 3.11:
-* The Prow based infra evolved in many ways....like leveraging AWS vs. GCP for example.  But it got to the point also, where the mapping to imagestreams running in the test cluster was more direct.  So in a stanza like:
+* The Prow based infra evolved in many ways....like leveraging AWS vs. GCP for example.  But it got to the point also, where the mapping to imagestreams running in the test cluster was more direct.  So in a stxhoea like:
 
 ```
 - dockerfile_path: Dockerfile.rhel7

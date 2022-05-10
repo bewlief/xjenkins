@@ -26,7 +26,7 @@ type ServiceSpec struct {
 
 // ServiceMode represents the mode of a service.
 type ServiceMode struct {
-	Replicated *ReplicatedService `json:",omitempty"`
+	Replicated *ReplicateXOPSrvice `json:",omitempty"`
 	Global     *GlobalService     `json:",omitempty"`
 }
 
@@ -50,8 +50,8 @@ type UpdateStatus struct {
 	Message     string      `json:",omitempty"`
 }
 
-// ReplicatedService is a kind of ServiceMode.
-type ReplicatedService struct {
+// ReplicateXOPSrvice is a kind of ServiceMode.
+type ReplicateXOPSrvice struct {
 	Replicas *uint64 `json:",omitempty"`
 }
 

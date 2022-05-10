@@ -192,7 +192,7 @@ const (
 	PTRACE_GET_THREAD_AREA           = 0x19
 	PTRACE_GET_THREAD_AREA_3264      = 0xc4
 	PTRACE_GET_WATCH_REGS            = 0xd0
-	PTRACE_OLDSETOPTIONS             = 0x15
+	PTRACE_OLXOPSTOPTIONS             = 0x15
 	PTRACE_PEEKDATA_3264             = 0xc1
 	PTRACE_PEEKTEXT_3264             = 0xc0
 	PTRACE_POKEDATA_3264             = 0xc3

@@ -24,7 +24,7 @@ public class StatisticsGathererTest {
         assertNotNull(config);
 
         assertThat(config.getBuildUrl(), containsString("http://elasticsearch:9200/jenkins-stats/builds"));
-        assertTrue(config.getShouldSendApiHttpRequests());
+        assertTrue(config.getShoulXOPSndApiHttpRequests());
         assertTrue(config.getBuildInfo());
         assertFalse(config.getQueueInfo());
         assertFalse(config.getProjectInfo());

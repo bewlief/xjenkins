@@ -1,5 +1,5 @@
 # Step 1: gradle build
-FROM hub.artifactory.gcp.anz/gradle:6.8-jdk11 AS builder
+FROM hub.artifactory.gcp.xhoe/gradle:6.8-jdk11 AS builder
 WORKDIR /home/java
 COPY . .
 
@@ -11,7 +11,7 @@ RUN gradle \
     # clean build -PenvName=local --no-daemon
 
 # Step 2: artifact
-FROM dtrprod.docker.service.anz/base-images/ubi8-openjdk-11
+FROM dtrprod.docker.service.xhoe/base-images/ubi8-openjdk-11
 
 # default is root, explicit here
 USER root

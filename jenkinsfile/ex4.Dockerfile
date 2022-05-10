@@ -1,14 +1,14 @@
-FROM hub.artifactory.gcp.anz/python:3.7.4-alpine as deps
+FROM hub.artifactory.gcp.xhoe/python:3.7.4-alpine as deps
 
-LABEL MAINTAINER audevops@anz.com
+LABEL MAINTAINER audevops@xhoe.com
 
 ARG aopdemo.proxy=
 ARG http_proxy=$aopdemo.proxy
 ARG https_proxy=$aopdemo.proxy
-ARG no_proxy=.anz,.test
+ARG no_proxy=.xhoe,.test
 ARG openshift_user=1001380000
 
-RUN printf 'https://artifactory.gcp.anz/artifactory/alpinelinux/alpine/v3.10/main\nhttps://artifactory.gcp.anz/artifactory/alpinelinux/alpine/v3.10/community' > /etc/apk/repositories
+RUN printf 'https://artifactory.gcp.xhoe/artifactory/alpinelinux/alpine/v3.10/main\nhttps://artifactory.gcp.xhoe/artifactory/alpinelinux/alpine/v3.10/community' > /etc/apk/repositories
 
 RUN apk update
 
@@ -38,7 +38,7 @@ USER user
 
 # install requirements
 ENV GRPC_PYTHON_BUILD_EXT_COMPILER_JOBS 16
-RUN pip install --user -r requirements -i https://artifactory.gcp.anz/artifactory/api/pypi/pypi/simple
+RUN pip install --user -r requirements -i https://artifactory.gcp.xhoe/artifactory/api/pypi/pypi/simple
 
 FROM deps
 

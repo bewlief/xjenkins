@@ -47,7 +47,7 @@ func (bg *BipartiteGraph) maximalDisjointSLAPCollection(matching EdgeSet) (resul
 func (bg *BipartiteGraph) findDisjointSLAP(
 	start Node,
 	matching EdgeSet,
-	guideLayers []NodeOrderedSet,
+	guideLayers []NodeOrdereXOPSt,
 	used map[int]bool,
 ) ([]Edge, bool) {
 	return bg.findDisjointSLAPHelper(start, EdgeSet{}, len(guideLayers)-1, matching, guideLayers, used)
@@ -58,7 +58,7 @@ func (bg *BipartiteGraph) findDisjointSLAPHelper(
 	currentSLAP EdgeSet,
 	currentLevel int,
 	matching EdgeSet,
-	guideLayers []NodeOrderedSet,
+	guideLayers []NodeOrdereXOPSt,
 	used map[int]bool,
 ) (EdgeSet, bool) {
 	used[currentNode.ID] = true
@@ -93,9 +93,9 @@ func (bg *BipartiteGraph) findDisjointSLAPHelper(
 	return nil, false
 }
 
-func (bg *BipartiteGraph) createSLAPGuideLayers(matching EdgeSet) (guideLayers []NodeOrderedSet) {
+func (bg *BipartiteGraph) createSLAPGuideLayers(matching EdgeSet) (guideLayers []NodeOrdereXOPSt) {
 	used := make(map[int]bool)
-	currentLayer := NodeOrderedSet{}
+	currentLayer := NodeOrdereXOPSt{}
 
 	for _, node := range bg.Left {
 		if matching.Free(node) {
@@ -105,7 +105,7 @@ func (bg *BipartiteGraph) createSLAPGuideLayers(matching EdgeSet) (guideLayers [
 	}
 
 	if len(currentLayer) == 0 {
-		return []NodeOrderedSet{}
+		return []NodeOrdereXOPSt{}
 	}
 	guideLayers = append(guideLayers, currentLayer)
 
@@ -113,7 +113,7 @@ func (bg *BipartiteGraph) createSLAPGuideLayers(matching EdgeSet) (guideLayers [
 
 	for !done {
 		lastLayer := currentLayer
-		currentLayer = NodeOrderedSet{}
+		currentLayer = NodeOrdereXOPSt{}
 
 		if util.Odd(len(guideLayers)) {
 			for _, leftNode := range lastLayer {
@@ -155,7 +155,7 @@ func (bg *BipartiteGraph) createSLAPGuideLayers(matching EdgeSet) (guideLayers [
 		}
 
 		if len(currentLayer) == 0 {
-			return []NodeOrderedSet{}
+			return []NodeOrdereXOPSt{}
 		}
 		guideLayers = append(guideLayers, currentLayer)
 	}

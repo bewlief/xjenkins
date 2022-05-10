@@ -31,24 +31,24 @@ public class ExportTest {
 
     @Test
     public void shouldNotExportValuesWithSecretGetters() throws Exception {
-        DataBoundConfigurator<DataBoundSecret> c = new DataBoundConfigurator<>(DataBoundSecret.class);
-        String res = export(c, new DataBoundSecret("test"));
+        DataBoundConfigurator<DataBounXOPScret> c = new DataBoundConfigurator<>(DataBounXOPScret.class);
+        String res = export(c, new DataBounXOPScret("test"));
         assertThat(res, not(containsString("test")));
     }
 
     @Test
     @Issue("SECURITY-1458")
     public void shouldNotExportValuesWithSecretFields() throws Exception {
-        DataBoundConfigurator<DataBoundSecretField> c = new DataBoundConfigurator<>(DataBoundSecretField.class);
-        String res = export(c, new DataBoundSecretField("test"));
+        DataBoundConfigurator<DataBounXOPScretField> c = new DataBoundConfigurator<>(DataBounXOPScretField.class);
+        String res = export(c, new DataBounXOPScretField("test"));
         assertThat(res, not(containsString("test")));
     }
 
     @Test
     @Issue("SECURITY-1458")
     public void shouldNotExportValuesWithSecretConstructors() throws Exception {
-        DataBoundConfigurator<DataBoundSecretConstructor> c = new DataBoundConfigurator<>(DataBoundSecretConstructor.class);
-        String res = export(c, new DataBoundSecretConstructor(Secret.fromString("test")));
+        DataBoundConfigurator<DataBounXOPScretConstructor> c = new DataBoundConfigurator<>(DataBounXOPScretConstructor.class);
+        String res = export(c, new DataBounXOPScretConstructor(Secret.fromString("test")));
         assertThat(res, not(containsString("test")));
     }
 
@@ -68,12 +68,12 @@ public class ExportTest {
         }
     }
 
-    public static class DataBoundSecret {
+    public static class DataBounXOPScret {
 
         Secret mySecretValue;
 
         @DataBoundConstructor
-        public DataBoundSecret(String mySecretValue) {
+        public DataBounXOPScret(String mySecretValue) {
             this.mySecretValue = Secret.fromString(mySecretValue);
         }
 
@@ -82,12 +82,12 @@ public class ExportTest {
         }
     }
 
-    public static class DataBoundSecretField {
+    public static class DataBounXOPScretField {
 
         Secret mySecretValue;
 
         @DataBoundConstructor
-        public DataBoundSecretField(String mySecretValue) {
+        public DataBounXOPScretField(String mySecretValue) {
             this.mySecretValue = Secret.fromString(mySecretValue);
         }
 
@@ -99,12 +99,12 @@ public class ExportTest {
     /**
      * Example of a safe persistency to the disk when JCasC cannot discover the field.
      */
-    public static class DataBoundSecretConstructor {
+    public static class DataBounXOPScretConstructor {
 
         Secret mySecretValueField;
 
         @DataBoundConstructor
-        public DataBoundSecretConstructor(Secret mySecretValue) {
+        public DataBounXOPScretConstructor(Secret mySecretValue) {
             this.mySecretValueField = mySecretValue;
         }
 

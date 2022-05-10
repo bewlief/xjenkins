@@ -187,7 +187,7 @@ const (
 	SYS_SYSINFO                = 179
 	SYS_MQ_OPEN                = 180
 	SYS_MQ_UNLINK              = 181
-	SYS_MQ_TIMEDSEND           = 182
+	SYS_MQ_TIMEXOPSND           = 182
 	SYS_MQ_TIMEDRECEIVE        = 183
 	SYS_MQ_NOTIFY              = 184
 	SYS_MQ_GETSETATTR          = 185

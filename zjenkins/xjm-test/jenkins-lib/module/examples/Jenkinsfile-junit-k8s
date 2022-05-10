@@ -20,8 +20,8 @@ pipeline {
       steps{
         script{
           container('java'){
-            sh 'mvn test -DSERVER_PORT=1234'
-            //sh 'mvn test -DSERVER_PORT=2345'
+            sh 'mvn test -XOPSRVER_PORT=1234'
+            //sh 'mvn test -XOPSRVER_PORT=2345'
           }
         }
       }

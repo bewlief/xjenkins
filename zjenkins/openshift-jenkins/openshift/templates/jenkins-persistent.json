@@ -127,7 +127,7 @@
                 },
                 "livenessProbe": {
                     "timeoutSeconds": 240,
-                    "periodSeconds": 360,
+                    "perioXOPSconds": 360,
                     "initialDelaySeconds": 420,
                     "failureThreshold" : 2,
                     "httpGet": {

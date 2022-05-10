@@ -248,7 +248,7 @@ const (
 	SizeofICMPv6Filter     = 0x20
 )
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [1024]int64
 }
 

@@ -233,20 +233,20 @@ def startbuild(context):
 def check_app_pod(context):
     time.sleep(120)
     podStatus = {}
-    podSet = set()
+    poXOPSt = set()
     bcdcSet = set()
     pods = v1.list_namespaced_pod(project_name)
     for i in pods.items:
         podStatus[i.metadata.name] = i.status.phase
-        podSet.add(i.metadata.name)
+        poXOPSt.add(i.metadata.name)
     
-    for items in podSet:
+    for items in poXOPSt:
         if 'build' in items:
            bcdcSet.add(items)
         elif 'deploy' in items:
             bcdcSet.add(items)
 
-    app_pods = podSet.difference(bcdcSet)
+    app_pods = poXOPSt.difference(bcdcSet)
     for items in app_pods:
         logger.info('Getting pods')
         logger.info(items)

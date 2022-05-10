@@ -223,7 +223,7 @@ const (
 	SYS_SET_MEMPOLICY          = 270
 	SYS_MQ_OPEN                = 271
 	SYS_MQ_UNLINK              = 272
-	SYS_MQ_TIMEDSEND           = 273
+	SYS_MQ_TIMEXOPSND           = 273
 	SYS_MQ_TIMEDRECEIVE        = 274
 	SYS_MQ_NOTIFY              = 275
 	SYS_MQ_GETSETATTR          = 276

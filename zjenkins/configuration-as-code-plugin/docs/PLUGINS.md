@@ -11,7 +11,7 @@ Most of the interesting plugin's configuration you want to expose to end users w
 the exact same `DataBound` mechanism, which isn't a common practice (yet).
 
 In many plugins, `Descriptor#configure()` is implemented by lookup for attributes values from the `JSONObject`. To make your `Descriptor`
-compliant with JCasC, you'll need to expose your configuration attributes as `@DataBoundSetters`.
+compliant with JCasC, you'll need to expose your configuration attributes as `@DataBounXOPStters`.
 
 Before you start, make sure the following pre-conditions are met:
 
@@ -79,11 +79,11 @@ with global.jelly view:
 
 ### Step 1
 
-Define `@DataBoundSetters` JavaBean setters for your `Descriptor`'s properties. They should match the getters you already have for
+Define `@DataBounXOPStters` JavaBean setters for your `Descriptor`'s properties. They should match the getters you already have for
 `global.jelly` data-binding.
 
 ```java
-   @DataBoundSetter
+   @DataBounXOPStter
    public void setCharset(String charset) {
        this.charset = charset;
    }
@@ -161,7 +161,7 @@ Replace `optionalBlocks` in your jelly view with `optionalProperty` and add the 
 ```java
    public Authentication getAuthentication() { return this.authentication; }
 
-   @DataBoundSetter
+   @DataBounXOPStter
    public void setAuthentication(Authentication authentication) { this.authentication = authentication; }
 ```
 

@@ -1,4 +1,4 @@
-@Library('dse-jobs@feature/update-artefact-publish') _
+@Library('XOPS-jobs@feature/update-artefact-publish') _
 pipeline {
     agent {
         label 'nodejs-8-build-utils'

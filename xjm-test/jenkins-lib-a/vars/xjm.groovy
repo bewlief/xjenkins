@@ -44,12 +44,12 @@ def checkoutGitx(repoUrl, branch, targetPath = "") {
     ])
 
     /**
-     * exit code =[GIT_AUTHOR_EMAIL:dse-jenkins@anz.com,
-     * GIT_AUTHOR_NAME:DSE-Jenkins,
+     * exit code =[GIT_AUTHOR_EMAIL:XOPS-jenkins@xhoe.com,
+     * GIT_AUTHOR_NAME:XOPS-Jenkins,
      * GIT_BRANCH:origin/test, G
      * IT_COMMIT:f354a8e7f85ca5cca1e3d2f2c25c37813339c7c3,
-     * GIT_COMMITTER_EMAIL:dse-jenkins@anz.com,
-     * GIT_COMMITTER_NAME:DSE-Jenkins,
+     * GIT_COMMITTER_EMAIL:XOPS-jenkins@xhoe.com,
+     * GIT_COMMITTER_NAME:XOPS-Jenkins,
      * GIT_PREVIOUS_COMMIT:f354a8e7f85ca5cca1e3d2f2c25c37813339c7c3,
      * GIT_PREVIOUS_SUCCESSFUL_COMMIT:f354a8e7f85ca5cca1e3d2f2c25c37813339c7c3,
      * GIT_URL:https://gitee.com/bewlief/sre-app.git]

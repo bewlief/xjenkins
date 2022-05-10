@@ -44,7 +44,7 @@ public class ProxyConfiguratorTest {
 
     @Test
     @ConfiguredWithCode("Proxy.yml")
-    public void shouldSetProxyWithAllFields() throws Exception {
+    public void shoulXOPStProxyWithAllFields() throws Exception {
         ProxyConfiguration proxy = j.jenkins.proxy;
         assertEquals(proxy.name, "proxyhost");
         assertEquals(proxy.port, 80);
@@ -66,7 +66,7 @@ public class ProxyConfiguratorTest {
 
     @Test
     @ConfiguredWithCode("ProxyMinimal.yml")
-    public void shouldSetProxyWithMinimumFields() throws Exception {
+    public void shoulXOPStProxyWithMinimumFields() throws Exception {
         ProxyConfiguration proxy = j.jenkins.proxy;
         assertEquals(proxy.name, "proxyhost");
         assertEquals(proxy.port, 80);
@@ -93,7 +93,7 @@ public class ProxyConfiguratorTest {
     @Env(name = "PROXY_NOPROXY", value = "external.host")
     @Env(name = "PROXY_TEST_URL", value = "http://google.com")
     @ConfiguredWithCode("ProxyWithSecrets.yml")
-    public void shouldSetProxyWithSecretInFields() {
+    public void shoulXOPStProxyWithSecretInFields() {
         ProxyConfiguration proxy = j.jenkins.proxy;
         assertEquals(proxy.name, "proxyhost");
         assertEquals(proxy.port, 80);

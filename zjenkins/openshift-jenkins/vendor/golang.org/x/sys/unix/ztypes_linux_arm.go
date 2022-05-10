@@ -171,7 +171,7 @@ type PtraceRegs struct {
 	Uregs [18]uint32
 }
 
-type FdSet struct {
+type FXOPSt struct {
 	Bits [32]int32
 }
 

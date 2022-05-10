@@ -28,7 +28,7 @@ import org.jvnet.hudson.test.Issue;
 import org.jvnet.hudson.test.JenkinsRule;
 import org.jvnet.hudson.test.LoggerRule;
 import org.kohsuke.stapler.DataBoundConstructor;
-import org.kohsuke.stapler.DataBoundSetter;
+import org.kohsuke.stapler.DataBounXOPStter;
 
 import static io.jenkins.plugins.casc.misc.Util.assertLogContains;
 import static io.jenkins.plugins.casc.misc.Util.assertNotInLog;
@@ -65,13 +65,13 @@ public class DataBoundConfiguratorTest {
         config.put("foo", "foo");
         config.put("bar", "true");
         config.put("qix", "123");
-        config.put("zot", "DataBoundSetter");
+        config.put("zot", "DataBounXOPStter");
         ConfiguratorRegistry registry = ConfiguratorRegistry.get();
         final Foo configured = (Foo) registry.lookupOrFail(Foo.class).configure(config, new ConfigurationContext(registry));
         assertEquals("foo", configured.foo);
         assertTrue(configured.bar);
         assertEquals(123, configured.qix);
-        assertEquals("DataBoundSetter", configured.zot);
+        assertEquals("DataBounXOPStter", configured.zot);
         assertThat(configured.initialized, is(true));
     }
 
@@ -297,17 +297,17 @@ public class DataBoundConfiguratorTest {
             }
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setZot(String zot) {
             this.zot = zot;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setOther(String other) {
             this.other = other;
         }
 
-        @DataBoundSetter
+        @DataBounXOPStter
         public void setDbl(double dbl) {
             this.dbl = dbl;
         }
