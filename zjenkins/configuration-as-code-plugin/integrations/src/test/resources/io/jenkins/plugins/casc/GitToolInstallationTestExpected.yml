@@ -1,5 +1,0 @@
-installations:
-- home: "/bin/git"
-  name: "git"
-- home: "/usr/local/bin/git"
-  name: "another_git"

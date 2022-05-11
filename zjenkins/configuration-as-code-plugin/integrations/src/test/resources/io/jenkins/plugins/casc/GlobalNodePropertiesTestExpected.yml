@@ -1,4 +1,0 @@
-- envVars:
-    env:
-    - key: "FOO"
-      value: "BAR"

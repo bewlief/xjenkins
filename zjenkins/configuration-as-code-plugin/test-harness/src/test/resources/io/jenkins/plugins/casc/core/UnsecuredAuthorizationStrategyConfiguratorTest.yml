@@ -1,5 +1,0 @@
-jenkins:
-  securityRealm:
-    local:
-      allowsSignup: false
-  authorizationStrategy: unsecured

@@ -1,7 +1,0 @@
-plugins:
-  required:
-    pipeline-utility-steps: latest
-    credentials: latest
-    generic-webhook-trigger: latest
-    git-changelog: latest
-    violation-comments-to-gitlab: latest

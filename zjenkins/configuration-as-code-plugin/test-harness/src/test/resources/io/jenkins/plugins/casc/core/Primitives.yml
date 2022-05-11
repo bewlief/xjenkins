@@ -1,3 +1,0 @@
-jenkins:
-  slaveAgentPort: 6666
-  authorizationStrategy: loggedInUsersCanDoAnything

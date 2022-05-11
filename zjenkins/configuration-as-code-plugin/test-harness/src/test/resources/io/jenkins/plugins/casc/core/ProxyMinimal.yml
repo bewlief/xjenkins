@@ -1,4 +1,0 @@
-jenkins:
-  proxy:
-    name: "proxyhost"
-    port: 80

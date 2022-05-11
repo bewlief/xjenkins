@@ -1,4 +1,0 @@
-unclassified:
-  slackNotifier:
-    teamDomain: workspace
-    tokenCredentialId: slack-token

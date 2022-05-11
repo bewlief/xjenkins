@@ -1,8 +1,0 @@
-jenkins:
-  securityRealm:
-    local:
-      allowsSignup: false
-      users:
-        - id: "admin"
-          password: "admin"
-  authorizationStrategy: loggedInUsersCanDoAnything

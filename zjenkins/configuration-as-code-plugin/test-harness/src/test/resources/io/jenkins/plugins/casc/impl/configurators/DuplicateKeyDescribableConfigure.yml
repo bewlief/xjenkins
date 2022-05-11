@@ -1,6 +1,0 @@
-unclassified:
-  fooBarGlobal:
-    fooBar:
-      fooBarInner:
-        foo: hello
-        bar: world

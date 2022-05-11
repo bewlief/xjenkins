@@ -1,6 +1,0 @@
-unclassified:
-  pipeline-model:
-    dockerLabel: "label-casc"
-    registry:
-      url: "my.docker.endpoint"
-      credentialsId: "credId"
