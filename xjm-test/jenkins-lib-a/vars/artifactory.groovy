@@ -22,5 +22,5 @@ def dockerPush(String tag) {
   def server = Artifactory.server "gcp-artifactory"
   def rtDocker = Artifactory.docker server: server, host: env.DOCKER_HOST
 
-  rtDocker.push tag, "XOPS-images"
+  rtDocker.push tag, "xops-images"
 }

@@ -71,12 +71,12 @@ jenkins:
           ks/R+AVKIElJvBzeMO+/s3UWt/AdREjxWTwPg/HS+3ukzFCiukzO3tvpDCM87met
           ByAAlxNnEfklHDEvI2XaE0jXOWLVFzAe2vrbG66A
           -----END CERTIFICATE-----
-        serverUrl: "https://172.30.0.1:443"
+        serverUrl: "https://10.10.10.100:9443"
         templates:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-aws-cli:1.0.0
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-aws-cli:1.0.0
                 name: "jnlp"
                 workingDir: "/tmp"
             label: "aws-cli"
@@ -90,7 +90,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12:1.0.4
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12:1.0.4
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -111,7 +111,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils:v2.0.3
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils:v2.0.3
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -132,7 +132,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils-oracle:v2.0.6
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-8-build-utils-oracle:v2.0.6
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -153,7 +153,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12-build-utils:1.0.4
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-12-build-utils:1.0.4
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -174,7 +174,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-14:1.0.0
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs-14:1.0.0
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -195,7 +195,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs:1.0.7
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-nodejs:1.0.7
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -216,7 +216,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine
                 name: "jnlp"
                 workingDir: "/tmp"
             label: "alpine"
@@ -230,7 +230,7 @@ jenkins:
           - containers:
               - alwaysPullImage: false
                 args: "^${computer.jnlpmac} ^${computer.name}"
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/alpine-docker:2.0
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/alpine-docker:2.0
                 name: "jnlp"
                 workingDir: "/tmp"
                 envVars:
@@ -238,7 +238,7 @@ jenkins:
                       key: "DOCKER_HOST"
                       value: "tcp://localhost:2375"
               - alwaysPullImage: false
-                image: XOPS-images.artifactory.gcp.xhoe/jenkins-agent/dind:v2.0.4
+                image: xops-images.artifactory.gcp.xhoe/jenkins-agent/dind:v2.0.4
                 privileged: true
                 name: "dind"
                 envVars:
