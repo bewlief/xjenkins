@@ -1,0 +1,19 @@
+unclassified:
+  globalLibraries:
+    libraries:
+      - name: "Sandbox"
+      - defaultVersion: "master"
+        implicit: true
+        name: "sandbox"
+        retriever:
+          modernSCM:
+            scm:
+              git:
+                id: "sandbox-repo"
+                remote: "https://gitee.com/bewlief/sre-jenkins.git"
+                traits:
+                  - cloneOptionTrait:
+                      extension:
+                        depth: 1
+                        noTags: true
+                        shallow: true

@@ -1,0 +1,64 @@
+pipeline {
+
+    agent any
+//stages  流程节点的组合，包括多个stage
+    stages {
+        //某一个流水线节点
+        stage('代码检出') {
+            //steps stage中具体要做的事情
+            steps {
+                //从svn地址检出代码
+                echo 'checkout'
+                checkout([$class: 'SubversionSCM', additionalCredentials: [], excludedCommitMessages: '', excludedRegions: '', excludedRevprop: '', excludedUsers: '', filterChangelog: false, ignoreDirPropChanges: false, includedRegions: '',
+                          locations: [[cancelProcessOnExternalsFail: true, credentialsId: 'ee2836e1-b734-4ccf-9bb7-035b735dd7b4', depthOption: 'infinity', ignoreExternalsOption: true, local: '.',
+                                       //动态引用svn地址
+                                       remote                      : '${svn_url}']], quietOperation: true, workspaceUpdater: [$class: 'UpdateUpdater']])
+            }
+        }
+        stage('编译构建') {
+            steps {
+                echo 'Building'
+                sh 'mvn clean install -Dmaven.test.skip=true '
+                echo 'image build'
+                sh '/data/template/gain-dockerfile.sh'
+                sh '/data/template/exec-dockerfile.sh'
+
+            }
+        }
+
+        //发布测试,生产测试的发布文件,并给容器设置env=uat的参数
+        stage('发布测试') {
+            steps {
+
+                sh '/data/template/k8s-deployment.sh uat'
+                sh '/data/template/k8s-copy-image.sh'
+                sh '/data/template/gain-ingress.sh'
+
+                echo '执行完成'
+
+            }
+        }
+
+        stage('发布生产') {
+            steps {
+                //控制发布生产流程,每次代码提交可以自动发布到测试，但是要手动控制发布测试
+                //超时时间，5分钟后自动终止任务
+                timeout(5) {
+                    input(
+                            //信息提示
+                            message: "确认发布生产?",
+                            //点击确定，继续进行
+                            ok: "确定",
+                            //提交人配置，只有配置的提交者点击发布才生效,多个用逗号分隔，不能有空格
+                            submitter: "zuijiazhenrong"
+                    )
+                }
+                sh '/data/template/k8s-deployment.sh pro'
+                sh '/data/template/k8s-copy-image.sh'
+                sh '/data/template/gain-ingress.sh'
+
+                echo '执行完成'
+            }
+        }
+    }
+}

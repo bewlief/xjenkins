@@ -1,0 +1,22 @@
+[
+  {
+    "artifactId": "eureka-service",
+    "repoUrl": "http://www.git.com/eureka",
+    "defaultBranch": "master"
+  },
+  {
+    "artifactId": "gateway-service",
+    "repoUrl": "http://www.git.com/ddd",
+    "defaultBranch": "xjm"
+  },
+  {
+    "artifactId": "basic-data-service",
+    "repoUrl": "http://www.git.com/www",
+    "defaultBranch": "dev"
+  },
+  {
+    "artifactId": "service2",
+    "repoUrl": "http://www.git.com/vvvv",
+    "defaultBranch": "master"
+  }
+]
