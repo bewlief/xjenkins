@@ -1,6 +1,0 @@
-resource "kubernetes_namespace" "foo" {
-  metadata {
-    name = "foo"
-  }
-}
-

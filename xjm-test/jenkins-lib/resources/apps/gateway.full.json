@@ -1,5 +1,0 @@
-{
-  "repoUrl": "http://www.git.com/gateway",
-  "branch": "xjm",
-  "stages": "unit-test,static-check,deploy-test,api-test,ui-test,perf-test, send-report,deploy-prod"
-}
